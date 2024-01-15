@@ -5,7 +5,7 @@ SRC := 	main.cpp
 
 OBJ := $(SRC:.cpp=.o)
 
-CCFLAGS := -Wall -Wextra -Werror -std=c++98
+CCFLAGS := -Wall -Wextra -Werror -std=c++98 -g
 #CCFLAGS := -g -fsanitize=address
 #CCFLAGS := -g -fsanitize=thread
 

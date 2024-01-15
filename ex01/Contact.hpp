@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 06:08:17 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/15 17:33:49 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/15 18:15:24 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,19 @@ public:
 	void		SetDarkestSecret(std::string new_darkest_secret);
 	void		SetIndex(int new_index);
 	int			GetIndex(void);
-	Contact(void);
+	Contact();
+	Contact(int index, std::string	number, std::string	surname, std::string lastname, std::string nickname, std::string darkest_secret);
 	~Contact();
 };
 
-Contact::Contact(void)
+Contact::Contact()
 {
-	std::cout << "Constructor Contacts" << std::endl;
+	std::cout << "default Constructor Contacts" << std::endl;
+}
+
+Contact::Contact(int index, std::string	number, std::string	surname, std::string lastname, std::string nickname, std::string darkest_secret) : index(index), number(number), surname(surname), lastname(lastname), nickname(nickname), darkest_secret(darkest_secret)
+{
+	std::cout << "init Constructor Contacts" << std::endl;
 }
 
 Contact::~Contact()
