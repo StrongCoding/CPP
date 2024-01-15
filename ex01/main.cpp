@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:01:19 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/15 08:59:37 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/15 17:25:40 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 int	main(void)
 {
-	Contact test;
+	PhoneBook pb;
 
-	test.count = 1;
-	std::cout << "miau " << test.count << std::endl;
+	
+	std::cout << pb.search() << std::endl;
 }
