@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 08:44:19 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/15 20:53:19 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/15 21:19:11 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	~PhoneBook();
 	void	search(void);
 	void	print_contact(int index);
-	bool	add(std::string number, std::string surname, std::string lastname, std::string nickname, std::string darkest_secret);
+	bool	add(void);
 };
 
 PhoneBook::PhoneBook(void)
@@ -65,12 +65,36 @@ void	PhoneBook::search(void)
 			std::cout << std::setw(10) << std::right << this->contacts[i].GetNickname();	
 		std::cout << "|" << std::endl;
 	}
+	std::cout << "please enter index of contact you want to see: ";
+	std::cin >> i;
+	print_contact(i);
 	return ;
 }
 
-bool PhoneBook::add(std::string number, std::string surname, std::string lastname, std::string nickname, std::string darkest_secret)
+bool PhoneBook::add(void)
 {
-	contacts[this->count % 8] = Contact(this->count, number, surname, lastname, nickname, darkest_secret);
+	std::string new_number;
+	std::string new_surname;
+	std::string new_lastname;
+	std::string new_nickname;
+	std::string new_darkest_secret;
+	
+	std::cout << "please enter number: ";
+	std::cin >> new_number;
+	std::cout << std::endl;
+	std::cout << "please enter surname: ";
+	std::cin >> new_surname;
+	std::cout << std::endl;
+	std::cout << "please enter lastname: ";
+	std::cin >> new_lastname;
+	std::cout << std::endl;
+	std::cout << "please enter nickname: ";
+	std::cin >> new_nickname;
+	std::cout << std::endl;
+	std::cout << "please enter darkest_secret: ";
+	std::cin >> new_darkest_secret;
+	std::cout << std::endl;
+	contacts[this->count % 8] = Contact(this->count, new_number, new_surname, new_lastname, new_nickname, new_darkest_secret);
 	this->count++;
 	return (true);
 }

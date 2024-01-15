@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:01:19 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/15 20:52:06 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/15 21:13:11 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,19 @@ int	main(void)
 {
 	PhoneBook	pb;
 	std::string	input;
-	std::cout << "enter input" << std::endl;
-	std::cin >> input;
-	pb.add("123", "daniel", "nebatz", "dhigh", "you");
-	pb.add("423", "sarah1", "lisa", "babymausistimhaus", "me");
-	pb.add("423", "sarah2", "lisa", "babymausistimhaus", "me");
-	pb.add("423", "sarah3", "lisa", "babymausistimhaus", "me");
-	pb.add("423", "sarah4", "lisa", "babymausistimhaus", "me");
-	pb.add("423", "sarah5", "lisa", "babymausistimhaus", "me");
-	pb.add("423", "sarah6", "lisa", "babymausistimhaus", "me");
-	pb.add("423", "sarah7", "lisa", "babymausistimhaus", "me");
-	pb.add("423", "sarah8", "lisa", "babymausistimhaus", "me");
-	pb.add("423", "sarah9", "lisa", "babymausistimhaus", "me");
-	pb.search();
-	std::cout << "exiting" << std::endl;
+
+	while (1)
+	{
+		std::cout << "This is the AWESOME phonebook!" << std::endl;
+		std::cout << "please enter ADD, SEARCH or EXIT" << std::endl;
+		std::cin >> input;
+		if (input == "ADD")
+			pb.add();
+		else if (input == "SEARCH")
+			pb.search();
+		else if (input == "EXIT")
+			return (0);
+		else
+			std::cout << "invalid input" << std::endl;
+	}
 }
