@@ -6,13 +6,14 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 08:44:19 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/15 20:26:45 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/15 20:53:19 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 # include "Contact.hpp"
+# include <iomanip>
 class PhoneBook
 {
 private:
@@ -41,43 +42,35 @@ PhoneBook::~PhoneBook()
 void	PhoneBook::search(void)
 {
 	int		i;
-	std::string	str;
 
 	i = -1;
-	std::cout << "     index|first name| last name|  nickname" << std::endl;
-	while (++i < this->count)
+	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
+	while (++i < this->count && i < 8)
 	{
-		std::cout << i << "|";
-		std::cout << this->contacts[i].GetSurname().length() << "|";
+		std::cout << "|";
+		std::cout << std::setw(10) << std::right << i << "|";
 		if (this->contacts[i].GetSurname().length() > 10)
 			std::cout << this->contacts[i].GetSurname().substr(0, 9) << ".";
 		else
-			{
-				str = this->contacts[i].GetSurname();
-				str.resize(10, ' ');
-				std::cout << str;
-			}
-			
-		// else
-		// 	std::cout << this->contacts[i].GetSurname().resize(10);
+			std::cout << std::setw(10) << std::right << this->contacts[i].GetSurname();			
 		std::cout << "|";
 		if (this->contacts[i].GetLastname().length() > 10)
 			std::cout << this->contacts[i].GetLastname().substr(0, 9) << ".";
-		// else
-		// 	std::cout << this->contacts[i].GetLastname().resize(10);
+		else
+			std::cout << std::setw(10) << std::right << this->contacts[i].GetLastname();	
 		std::cout << "|";
 		if (this->contacts[i].GetNickname().length() > 10)
 			std::cout << this->contacts[i].GetNickname().substr(0, 9) << ".";
-		// else
-		// 	std::cout << this->contacts[i].GetNickname().resize(10);
-		std::cout << std::endl;
+		else
+			std::cout << std::setw(10) << std::right << this->contacts[i].GetNickname();	
+		std::cout << "|" << std::endl;
 	}
 	return ;
 }
 
 bool PhoneBook::add(std::string number, std::string surname, std::string lastname, std::string nickname, std::string darkest_secret)
 {
-	contacts[this->count] = Contact(this->count, number, surname, lastname, nickname, darkest_secret);
+	contacts[this->count % 8] = Contact(this->count, number, surname, lastname, nickname, darkest_secret);
 	this->count++;
 	return (true);
 }
