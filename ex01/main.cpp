@@ -6,11 +6,11 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:01:19 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 10:40:27 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 10:44:58 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "Main.hpp"
 
 int	main(void)
 {

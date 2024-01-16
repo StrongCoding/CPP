@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 06:08:17 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 10:39:37 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 11:01:10 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 class Contact
 {
 private:
-	int			index;
-	std::string	number;
-	std::string	surname;
-	std::string	lastname;
-	std::string	nickname;
-	std::string	darkest_secret;
+	int			m_contact_index;
+	std::string	m_phonenumber;
+	std::string	m_surname;
+	std::string	m_lastname;
+	std::string	m_nickname;
+	std::string	m_darkest_secret;
 
 public:
 	std::string	GetNumber(void);
-	void		SetNumber(std::string new_number);
+	void		SetNumber(std::string new_phonenumber);
 	std::string	GetSurname(void);
 	void		SetSurname(std::string new_surname);
 	std::string	GetLastname(void);
@@ -37,7 +37,7 @@ public:
 	void		SetIndex(int new_index);
 	int			GetIndex(void);
 	Contact();
-	Contact(int index, std::string	number, std::string	surname, std::string lastname, std::string nickname, std::string darkest_secret);
+	Contact(int contact_index, std::string phonenumber, std::string surname, std::string lastname, std::string nickname, std::string darkest_secret);
 	~Contact();
 };
 

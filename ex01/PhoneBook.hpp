@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 08:44:19 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 10:39:49 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 10:50:59 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 class PhoneBook
 {
 private:
-	Contact	contacts[8];
-	int		count;
+	Contact	m_contacts[8];
+	int		m_count;
 
 public:
 	PhoneBook(void);
 	~PhoneBook();
 	void	search(void);
-	void	print_contact(int index);
+	void	printContact(int index);
 	bool	add(void);
 };
 

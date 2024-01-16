@@ -6,15 +6,15 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:15:48 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 10:40:07 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 10:51:17 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "Main.hpp"
 
 PhoneBook::PhoneBook(void)
 {
-	this->count = 0;
+	this->m_count = 0;
 	std::cout << "Constructor PhoneBook" << std::endl;
 }
 
@@ -29,29 +29,29 @@ void	PhoneBook::search(void)
 
 	i = -1;
 	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
-	while (++i < this->count && i < 8)
+	while (++i < this->m_count && i < 8)
 	{
 		std::cout << "|";
 		std::cout << std::setw(10) << std::right << i << "|";
-		if (this->contacts[i].GetSurname().length() > 10)
-			std::cout << this->contacts[i].GetSurname().substr(0, 9) << ".";
+		if (this->m_contacts[i].GetSurname().length() > 10)
+			std::cout << this->m_contacts[i].GetSurname().substr(0, 9) << ".";
 		else
-			std::cout << std::setw(10) << std::right << this->contacts[i].GetSurname();			
+			std::cout << std::setw(10) << std::right << this->m_contacts[i].GetSurname();			
 		std::cout << "|";
-		if (this->contacts[i].GetLastname().length() > 10)
-			std::cout << this->contacts[i].GetLastname().substr(0, 9) << ".";
+		if (this->m_contacts[i].GetLastname().length() > 10)
+			std::cout << this->m_contacts[i].GetLastname().substr(0, 9) << ".";
 		else
-			std::cout << std::setw(10) << std::right << this->contacts[i].GetLastname();	
+			std::cout << std::setw(10) << std::right << this->m_contacts[i].GetLastname();	
 		std::cout << "|";
-		if (this->contacts[i].GetNickname().length() > 10)
-			std::cout << this->contacts[i].GetNickname().substr(0, 9) << ".";
+		if (this->m_contacts[i].GetNickname().length() > 10)
+			std::cout << this->m_contacts[i].GetNickname().substr(0, 9) << ".";
 		else
-			std::cout << std::setw(10) << std::right << this->contacts[i].GetNickname();	
+			std::cout << std::setw(10) << std::right << this->m_contacts[i].GetNickname();	
 		std::cout << "|" << std::endl;
 	}
 	std::cout << "please enter index of contact you want to see: ";
 	std::cin >> i;
-	print_contact(i);
+	printContact(i);
 	return ;
 }
 
@@ -106,27 +106,27 @@ bool PhoneBook::add(void)
 					std::cout << "invalid input: please only ascii" << std::endl;
 	}
 	std::cout << std::endl;
-	contacts[this->count % 8] = Contact(this->count, new_number, new_surname, new_lastname, new_nickname, new_darkest_secret);
-	this->count++;
+	m_contacts[this->m_count % 8] = Contact(this->m_count, new_number, new_surname, new_lastname, new_nickname, new_darkest_secret);
+	this->m_count++;
 	return (true);
 }
 
-void	PhoneBook::print_contact(int index)
+void	PhoneBook::printContact(int index)
 {
 	if (index < 0 || index > 7)
 	{
 		std::cout << "index out of range" << std::endl;
 		return ;
 	}
-	else if (index >= this->count)
+	else if (index >= this->m_count)
 	{
 		std::cout << "index not used" << std::endl;
 		return ;
 	}
-	std::cout << "index: " << this->contacts[index].GetIndex() << std::endl;
-	std::cout << "number: " << this->contacts[index].GetNumber() << std::endl;
-	std::cout << "surname: " << this->contacts[index].GetSurname() << std::endl;
-	std::cout << "lastname: " << this->contacts[index].GetLastname() << std::endl;
-	std::cout << "nickname: " << this->contacts[index].GetNickname() << std::endl;
-	std::cout << "darkest_secret: " << this->contacts[index].GetDarkestSecret() << std::endl;
+	std::cout << "index: " << this->m_contacts[index].GetIndex() << std::endl;
+	std::cout << "number: " << this->m_contacts[index].GetNumber() << std::endl;
+	std::cout << "surname: " << this->m_contacts[index].GetSurname() << std::endl;
+	std::cout << "lastname: " << this->m_contacts[index].GetLastname() << std::endl;
+	std::cout << "nickname: " << this->m_contacts[index].GetNickname() << std::endl;
+	std::cout << "darkest_secret: " << this->m_contacts[index].GetDarkestSecret() << std::endl;
 }
