@@ -6,11 +6,11 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:15:48 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 10:24:54 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 10:40:07 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "main.hpp"
 
 PhoneBook::PhoneBook(void)
 {

@@ -6,11 +6,11 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:33:55 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 09:39:58 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 10:40:01 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "main.hpp"
 
 
 Contact::Contact()

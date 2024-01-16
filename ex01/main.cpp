@@ -6,13 +6,11 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:01:19 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 10:34:41 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 10:40:27 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
-#include "PhoneBook.hpp"
-#include <cctype>
+#include "main.hpp"
 
 int	main(void)
 {

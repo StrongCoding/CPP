@@ -6,14 +6,12 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 06:08:17 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 10:34:10 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 10:39:37 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
-# include <iomanip>
-# include <iostream>
 
 class Contact
 {

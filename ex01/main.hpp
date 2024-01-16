@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 08:44:19 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 10:39:49 by dnebatz          ###   ########.fr       */
+/*   Created: 2024/01/16 10:13:16 by dnebatz           #+#    #+#             */
+/*   Updated: 2024/01/16 10:40:21 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef MAIN_HPP
+# define MAIN_HPP
 
-class PhoneBook
-{
-private:
-	Contact	contacts[8];
-	int		count;
-
-public:
-	PhoneBook(void);
-	~PhoneBook();
-	void	search(void);
-	void	print_contact(int index);
-	bool	add(void);
-};
+# include <iomanip>
+# include <iostream>
+# include <cctype>
+# include "Contact.hpp"
+# include "PhoneBook.hpp"
 
 bool	isNumber(std::string str);
 bool	isAscii(std::string str);
