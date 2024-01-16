@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:15:48 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 17:09:55 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:54:08 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 PhoneBook::PhoneBook(void)
 {
 	this->m_count = 0;
-	std::cout << "Constructor PhoneBook" << std::endl;
 }
 
 PhoneBook::~PhoneBook()
 {
-	std::cout << "Destructor PhoneBook" << std::endl;
+	
 }
 
 void	PhoneBook::search(void)
@@ -56,26 +55,34 @@ void	PhoneBook::search(void)
 			std::cout << std::setw(10) << std::right << this->m_contacts[i].GetNickname();	
 		std::cout << "|" << std::endl;
 	}
-	std::cout << "please enter index of contact you want to see: ";
-	std::cin >> input;
-	if (!isNumber(input))
+	while (1)
 	{
-		std::cout << "please input a number" << std::endl;
-		return ;
+		std::cout << "please enter index of contact you want to see: ";
+		std::getline(std::cin, input, '\n');
+		if (std::cin.eof())
+			break;
+		if (!isNumber(input) || input.empty())
+		{
+			std::cout << "please input a number" << std::endl;
+			continue ;
+		}
+		input_int = stoi(input);
+		if (input_int < 0 || input_int > 7)
+		{
+			std::cout << "index out of range" << std::endl;
+			continue; ;
+		}
+		if (input_int >= this->m_count)
+		{
+			std::cout << "index not used" << std::endl;
+			continue ;
+		}
+		else
+		{
+			printContact(input_int);
+			break ;
+		}	
 	}
-	input_int = stoi(input);
-	if (input_int < 0 || input_int > 7)
-	{
-		std::cout << "index out of range" << std::endl;
-		return ;
-	}
-	if (input_int >= this->m_count)
-	{
-		std::cout << "index not used" << std::endl;
-		return ;
-	}
-	else
-		printContact(i);
 	return ;
 }
 
@@ -102,8 +109,12 @@ bool PhoneBook::add(void)
 			std::cout << "please enter nickname: ";
 		else if (i == 4)
 			std::cout << "please enter darkest secret: ";
-		std::cin >> input;
-		if(i == 0)
+		std::getline(std::cin, input, '\n');
+		if (std::cin.eof())
+			break;
+		if (input.empty())
+			continue ;
+		else if(i == 0)
 			{
 				if (isNumber(input))
 				{

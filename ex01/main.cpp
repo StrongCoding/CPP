@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:01:19 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 10:44:58 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:53:39 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int	main(void)
 	{
 		std::cout << "This is the AWESOME phonebook!" << std::endl;
 		std::cout << "please enter ADD, SEARCH or EXIT" << std::endl;
-		std::cin >> input;
+		std::getline(std::cin, input, '\n');
+		if (std::cin.eof())
+			break;
 		if (input == "ADD")
 			pb.add();
 		else if (input == "SEARCH")
