@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:33:55 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 17:15:18 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 18:02:35 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,13 @@ Contact::Contact()
 
 }
 
-Contact::Contact(int contact_index, std::string phonenumber, std::string surname, std::string lastname, std::string nickname, std::string darkest_secret) : m_contact_index(contact_index), m_phonenumber(phonenumber), m_surname(surname), m_lastname(lastname), m_nickname(nickname), m_darkest_secret(darkest_secret)
+Contact::Contact(int contact_index, std::string phonenumber, std::string surname, std::string lastname, std::string nickname, std::string darkest_secret)
+	: m_contact_index(contact_index)
+	, m_phonenumber(phonenumber)
+	, m_surname(surname)
+	, m_lastname(lastname)
+	, m_nickname(nickname)
+	, m_darkest_secret(darkest_secret)
 {
 
 }
