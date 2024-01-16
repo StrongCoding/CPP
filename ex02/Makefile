@@ -1,4 +1,4 @@
-NAME = phonebook
+NAME = GlobalBanksterUnited
 
 SRC := 	tests.cpp \
 		Account.cpp

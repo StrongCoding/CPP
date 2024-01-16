@@ -1,13 +1,18 @@
 #include "Account.hpp"
 #include <iostream>
 
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
+
 Account::Account(void)
 {
 
 }
 
 Account::Account(int initial_deposit)
-	: accountIndex(getNbAccounts())
+	: _accountIndex(getNbAccounts())
 	, _amount(initial_deposit)
 	, _nbDeposits(0)
 	, _nbWithdrawals(0) 
@@ -57,13 +62,14 @@ void	Account::_displayTimestamp(void)
 	std::string	hour;
 	std::string	minute;
 	std::string	second;
+	std::time_t	timestamp;
 
-	std::time_t	std::time = std::time(NULL);
-	year = std::to_string(std::localtime(&std::time)->tm_year + 1900);
-	month = std::to_string(std::localtime(&std::time)->tm_mon + 1);
-	day = std::to_string(std::localtime(&std::time)->tm_mday);
-	hour = std::to_string(std::localtime(&std::time)->tm_hour);
-	minute = std::to_string(std::localtime(&std::time)->tm_min);
+	timestamp = std::time(NULL);
+	year = std::to_string(std::localtime(&timestamp)->tm_year + 1900);
+	month = std::to_string(std::localtime(&timestamp)->tm_mon + 1);
+	day = std::to_string(std::localtime(&timestamp)->tm_mday);
+	hour = std::to_string(std::localtime(&timestamp)->tm_hour);
+	minute = std::to_string(std::localtime(&timestamp)->tm_min);
 	std::cout	<< "[" 
 				<< year
 				<< month
@@ -102,19 +108,21 @@ bool	Account::makeWithdrawal(int withdrawal)
 {
 	_displayTimestamp();
 	std::cout	<< "index:" << _accountIndex
-				<< ";p_amount:" << _amount
+				<< ";p_amount:" << _amount;
 	if (_amount < withdrawal)
 	{
 		std::cout	<< ";withdrawal:refused" << std::endl;
+		return (false);
 	}
 	else
 	{
-	std::cout	<< ";withdrawal:" << withdrawal
-				<< ";amount:" << _amount - withdrawal
-				<< ";nb_withdrawals:" << _nbWithdrawals+ 1
-				<< std::endl;
-	_amount -= withdrawal;
-	_nbWithdrawals++;
+		std::cout	<< ";withdrawal:" << withdrawal
+					<< ";amount:" << _amount - withdrawal
+					<< ";nb_withdrawals:" << _nbWithdrawals+ 1
+					<< std::endl;
+		_amount -= withdrawal;
+		_nbWithdrawals++;
+		return (true);
 	}
 }
 
