@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 09:15:48 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 10:51:17 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 17:09:55 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,15 @@ PhoneBook::~PhoneBook()
 
 void	PhoneBook::search(void)
 {
-	int		i;
-
+	std::string	input;
+	int			i;
+	int			input_int;
+	
+	if (this->m_count == 0)
+	{
+		std::cout << "awesome phonebook is empty :(" << std::endl;
+		return ;
+	}
 	i = -1;
 	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
 	while (++i < this->m_count && i < 8)
@@ -50,8 +57,25 @@ void	PhoneBook::search(void)
 		std::cout << "|" << std::endl;
 	}
 	std::cout << "please enter index of contact you want to see: ";
-	std::cin >> i;
-	printContact(i);
+	std::cin >> input;
+	if (!isNumber(input))
+	{
+		std::cout << "please input a number" << std::endl;
+		return ;
+	}
+	input_int = stoi(input);
+	if (input_int < 0 || input_int > 7)
+	{
+		std::cout << "index out of range" << std::endl;
+		return ;
+	}
+	if (input_int >= this->m_count)
+	{
+		std::cout << "index not used" << std::endl;
+		return ;
+	}
+	else
+		printContact(i);
 	return ;
 }
 
@@ -113,16 +137,6 @@ bool PhoneBook::add(void)
 
 void	PhoneBook::printContact(int index)
 {
-	if (index < 0 || index > 7)
-	{
-		std::cout << "index out of range" << std::endl;
-		return ;
-	}
-	else if (index >= this->m_count)
-	{
-		std::cout << "index not used" << std::endl;
-		return ;
-	}
 	std::cout << "index: " << this->m_contacts[index].GetIndex() << std::endl;
 	std::cout << "number: " << this->m_contacts[index].GetNumber() << std::endl;
 	std::cout << "surname: " << this->m_contacts[index].GetSurname() << std::endl;
