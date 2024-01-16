@@ -6,13 +6,13 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:01:19 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 09:35:16 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/16 10:34:41 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "PhoneBook.hpp"
 #include "Contact.hpp"
+#include "PhoneBook.hpp"
+#include <cctype>
 
 int	main(void)
 {
@@ -33,4 +33,26 @@ int	main(void)
 		else
 			std::cout << "invalid input" << std::endl;
 	}
+}
+
+bool	isNumber(std::string str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		if (!isdigit(str[i]))
+			return (false);
+	return (true);
+}
+
+bool	isAscii(std::string str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		if (!isascii(str[i]))
+			return (false);
+	return (true);
 }
