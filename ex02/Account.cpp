@@ -70,6 +70,7 @@ void	Account::_displayTimestamp(void)
 	day = std::to_string(std::localtime(&timestamp)->tm_mday);
 	hour = std::to_string(std::localtime(&timestamp)->tm_hour);
 	minute = std::to_string(std::localtime(&timestamp)->tm_min);
+	second = std::to_string(std::localtime(&timestamp)->tm_sec);
 	std::cout	<< "[" 
 				<< year
 				<< month
@@ -101,7 +102,9 @@ void	Account::makeDeposit(int deposit)
 				<< ";nb_deposits:" << _nbDeposits + 1
 				<< std::endl;
 	_amount += deposit;
+	_totalAmount += deposit;
 	_nbDeposits++;
+	_totalNbDeposits++;
 }
 
 bool	Account::makeWithdrawal(int withdrawal)
@@ -121,7 +124,9 @@ bool	Account::makeWithdrawal(int withdrawal)
 					<< ";nb_withdrawals:" << _nbWithdrawals+ 1
 					<< std::endl;
 		_amount -= withdrawal;
+		_totalAmount -= withdrawal;
 		_nbWithdrawals++;
+		_totalNbWithdrawals++;
 		return (true);
 	}
 }
