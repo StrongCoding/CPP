@@ -6,11 +6,13 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:04:25 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/17 18:30:32 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/17 19:48:57 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+# include <iostream>
 
 class Zombie
 {
@@ -27,3 +29,5 @@ public:
 
 Zombie* newZombie( std::string name );
 void randomChump( std::string name );
+
+#endif	
