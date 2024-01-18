@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:54:13 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/18 12:41:29 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/18 12:54:12 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,3 +99,5 @@ void Harl::complain(std::string level)
 			}
 		}
 }
+
+// maybe move switch case into loop for no falldown break
