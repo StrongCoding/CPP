@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:54:13 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/18 12:30:29 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/18 12:41:29 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,27 @@ void Harl::complain(std::string level)
 	{
 		if (level == levels[i] || found)
 		{
-			(this->*functionPointer[i])();
+			// (this->*functionPointer[i])();
 			found = true;
+			break;
 		}
 	}
-	if (!found)
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	// if (found)
+		{
+			switch (i)
+			{
+				case 0:
+					(this->*functionPointer[0])();					
+				case 1:
+					(this->*functionPointer[1])();
+				case 2:
+					(this->*functionPointer[2])();
+				case 3:
+					(this->*functionPointer[3])();
+					break;
+				default:
+					std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+					break;
+			}
+		}
 }
