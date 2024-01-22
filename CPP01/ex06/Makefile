@@ -1,7 +1,7 @@
 NAME = harlFilter
 
 SRC := 	main.cpp \
-		harl.cpp
+		Harl.cpp
 
 OBJ := $(SRC:.cpp=.o)
 
