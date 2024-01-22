@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:27 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/22 11:03:47 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/22 11:07:11 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Fixed::Fixed()
 
 Fixed::~Fixed()
 {
-	std::cout << "Default deconstructor called" << std::endl;
+	std::cout << "Deconstructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed & copy)
