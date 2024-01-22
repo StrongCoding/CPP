@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 20:39:30 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/22 20:42:19 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/22 21:10:27 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,25 @@
 
 # include <iostream>
 # include <string>
+# include "Fixed.hpp"
 
 class Point
 {
 	private:
-		float	m_x;
-		float	m_y;
+		const Fixed	m_x;
+		const Fixed	m_y;
 
 	public:
 		Point();
 		Point(const Point &copy);
-		Point(const float x, const float y);
+		Point(const Fixed x, const Fixed y);
 		Point &operator =(const Point &source);
 		~Point();
 
-		float	getX(void) const;
-		float	getY(void) const;
+		Fixed	getX(void) const;
+		Fixed	getY(void) const;
 };
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif
