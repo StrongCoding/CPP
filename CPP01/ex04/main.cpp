@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*   By: dnebatz <dnebatz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:44:15 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/18 10:32:56 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/22 13:47:20 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 		std::cout << "cannot open input file" << std::endl;
 		return (1);
 	}
-	std::ofstream outputfile(std::string(argv[1]) + ".replace");
+	std::ofstream outputfile((std::string(argv[1]) + ".replace").c_str());
 	if (!outputfile.is_open())
 	{
 		std::cout << "error outputfile" << std::endl;
