@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:29 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/22 11:13:05 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/22 10:55:03 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,10 @@ class Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed &copy);
-		Fixed(const int value);
-		Fixed(const float value);
 		Fixed &operator =(const Fixed &source);
-		operation <<(std::
 		~Fixed();
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
-		float	toFloat(void) const;
-		int		toInt(void) const;
-		
 };
 
 #endif
