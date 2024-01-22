@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:55:13 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/17 20:25:26 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/22 15:48:39 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void Weapon::setType(std::string type)
 	m_type = type;
 }
 
-std::string Weapon::getType()
+const std::string &Weapon::getType()
 {
-return std::string(m_type);
+	return (m_type);
 }
