@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 20:41:52 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/23 10:10:58 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:48:18 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	std::cout << "first_triangle: " << first_triangle << std::endl;
 	std::cout << "second_triangle: " << second_triangle << std::endl;
 	std::cout << "third_triangle: " << third_triangle << std::endl;
-	if (first_triangle >= 0 && second_triangle >= 0 && third_triangle >= 0)
+	if (first_triangle > 0 && second_triangle > 0 && third_triangle > 0)
 		return (true);
 	return (false);
 }
