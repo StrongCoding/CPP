@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 20:47:25 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/23 10:09:37 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:31:28 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Point::Point()
 {
 }
 
-Point::Point(const Point &copy)
+Point::Point(const Point &copy) : m_x(copy.getX()), m_y(copy.getY())
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;

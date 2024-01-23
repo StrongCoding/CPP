@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:24 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/23 10:04:44 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/23 11:32:25 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main( void )
 	Point a(Fixed(1), Fixed(1));
 	Point b(Fixed(1), Fixed(4));
 	Point c(Fixed(4), Fixed(1));
-	Point toCheck(Fixed(2.0f), Fixed(2.0f));
+	Point toCheck(Fixed(10.0f), Fixed(2.0f));
 
 	if (bsp(a, b, c, toCheck))
 		std::cout << "Point is inside" << std::endl;
