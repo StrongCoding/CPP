@@ -1,7 +1,7 @@
-NAME = fixed
+NAME = clappy
 
 SRC := 	main.cpp \
-		Fixed.cpp
+		ClapTrap.cpp
 
 
 OBJ := $(SRC:.cpp=.o)
