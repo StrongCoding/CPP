@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:29 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/22 19:55:09 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/23 10:28:57 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ class Fixed
 		Fixed(const int value);
 		Fixed(const float value);
 		Fixed &operator =(const Fixed &source);
-		bool operator >(const Fixed &source);
-		bool operator <(const Fixed &source);
-		bool operator >=(const Fixed &source);
-		bool operator <=(const Fixed &source);
-		bool operator ==(const Fixed &source);
-		bool operator !=(const Fixed &source);
+		bool operator >(const Fixed &source) const;
+		bool operator <(const Fixed &source) const;
+		bool operator >=(const Fixed &source) const;
+		bool operator <=(const Fixed &source) const;
+		bool operator ==(const Fixed &source) const;
+		bool operator !=(const Fixed &source) const;
 		
 		float operator +(float value);
 		int operator +(int value);

@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:21:27 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/22 19:55:08 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/23 10:29:48 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,42 +73,42 @@ int Fixed::toInt(void) const
 	return m_value_number >> m_bits;
 }
 
-bool Fixed::operator >(const Fixed &source)
+bool Fixed::operator >(const Fixed &source) const
 {
 	if (this->m_value_number > source.m_value_number)
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator <(const Fixed &source)
+bool Fixed::operator <(const Fixed &source) const
 {
 	if (this->m_value_number < source.m_value_number)
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator >=(const Fixed &source)
+bool Fixed::operator >=(const Fixed &source) const
 {
 	if (this->m_value_number >= source.m_value_number)
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator <=(const Fixed &source)
+bool Fixed::operator <=(const Fixed &source) const
 {
 	if (this->m_value_number <= source.m_value_number)
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator ==(const Fixed &source)
+bool Fixed::operator ==(const Fixed &source) const
 {
 	if (this->m_value_number == source.m_value_number)
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator !=(const Fixed &source)
+bool Fixed::operator !=(const Fixed &source) const
 {
 	if (this->m_value_number != source.m_value_number)
 		return (true);

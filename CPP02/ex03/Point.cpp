@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 20:47:25 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/22 21:19:31 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/23 10:09:37 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ Point::~Point()
 
 Fixed Point::getX(void) const
 {
-	return Fixed();
+	return m_x;
 }
 
 Fixed Point::getY(void) const
 {
-	return Fixed();
+	return m_y;
 }
