@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dnebatz <dnebatz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:44:15 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/22 13:47:20 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/24 11:41:35 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ std::string	replaceStrings(std::string source, std::string stringToReplace, std:
 			break ;
 		source.erase(pos, stringToReplace.length());
 		source.insert(pos, stringNew);
+		stringLength += (stringNew.length() - stringToReplace.length());
 		pos += stringNew.length();
 	}
 	return (source);
