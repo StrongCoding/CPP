@@ -1,7 +1,8 @@
 NAME = fixed
 
 SRC := 	main.cpp \
-		Fixed.cpp
+		ClapTrap.cpp \
+		ScavTrap.cpp
 
 
 OBJ := $(SRC:.cpp=.o)
