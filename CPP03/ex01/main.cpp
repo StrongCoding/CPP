@@ -6,14 +6,16 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 21:12:27 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/23 21:42:30 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/24 18:39:21 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main( void )
 {
+	int	i = 51;
 	ClapTrap a;
 	ClapTrap b("Lady Gaga");
 	b.attack("Bjoern");
@@ -31,4 +33,13 @@ int main( void )
 	b.attack("Bjoern9");
 	b.attack("Bjoern10");
 	b.attack("Bjoern11");
+	ScavTrap c("Bjoern");
+	ScavTrap d;
+	while(--i)
+		c.attack("Tree");
+	d.takeDamage(1);
+	d.takeDamage(99);
+	d.beRepaired(1);
+	c.beRepaired(1);
+	return (0);
 }
