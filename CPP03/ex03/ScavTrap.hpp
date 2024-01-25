@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 21:45:29 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/24 18:02:39 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/25 12:19:09 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	private:
 		

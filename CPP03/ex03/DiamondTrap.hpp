@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:55:11 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/24 21:02:36 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/25 12:10:55 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,16 @@
 class DiamondTrap : public FragTrap, public ScavTrap
 {
 	private:
+		std::string m_name;
+		using FragTrap::m_hitPoints;
+		using ScavTrap::m_energyPoints;
+		using FragTrap::m_attackDamage;
+		// ClapTrap::m_name;
 		
 	public:
 		DiamondTrap();
 		DiamondTrap(std::string name);
-		// void attack(const std::string &target);
-		using ScavTrap::attack;
+		// using ScavTrap::attack;
 		void whoAmI(void);
 };
 

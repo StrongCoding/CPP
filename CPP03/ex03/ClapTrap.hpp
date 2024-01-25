@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:06:47 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/24 18:27:33 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/25 11:43:07 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ClapTrap
     public:
         ClapTrap();
 		ClapTrap(std::string name);
-        ~ClapTrap();
+        virtual ~ClapTrap();
         ClapTrap(const ClapTrap &copy);
         ClapTrap &operator =(const ClapTrap &source);
         void attack(const std::string &target);
