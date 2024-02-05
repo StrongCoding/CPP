@@ -14,6 +14,7 @@
 
 Dog::Dog()
 {
+	m_type = "Dog";
 }
 
 Dog::~Dog()
@@ -22,9 +23,9 @@ Dog::~Dog()
 
 Dog &Dog::operator=(const Dog &source)
 {
-	if (*this != source)
-    {
-        m_type = source.m_type;
-    }
-    return (*this)
+	if (this != &source)
+	{
+		m_type = source.m_type;
+	}
+	return (*this);
 }

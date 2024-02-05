@@ -15,7 +15,7 @@
 
 # include "Animal.hpp"
 
-class Dog
+class Dog : public Animal
 {
 	Dog();
 	~Dog();
