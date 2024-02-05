@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*   By: dnebatz <dnebatz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:06:47 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/25 11:43:07 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/25 13:51:19 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class ClapTrap
 		// int	getHitPoints(void);
 		// int	getEnergyPoints(void);
 		// int getAttackDamage(void);
-		std::string getName(void);
+		// std::string getName(void);
 };
 
 #endif

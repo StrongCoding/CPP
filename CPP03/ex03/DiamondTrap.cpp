@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*   By: dnebatz <dnebatz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:55:06 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/25 12:26:41 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/01/25 13:49:50 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ DiamondTrap::DiamondTrap()
 DiamondTrap::DiamondTrap(std::string name)
 {
 	m_name = name;
-	FragTrap::ClapTrap::m_name = name + "_clap_name";
+	ClapTrap::m_name = name + "_clap_name";
 }
 
 void DiamondTrap::whoAmI(void)
