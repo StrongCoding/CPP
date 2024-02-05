@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 17:01:19 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/16 17:53:39 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/05 16:41:20 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,12 @@ bool	isAscii(std::string str)
 		if (!isascii(str[i]))
 			return (false);
 	return (true);
+}
+
+int	stoi(std::string &s)
+{
+	int i;
+
+	std::istringstream(s) >> i;
+	return i;
 }
