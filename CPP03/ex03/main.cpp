@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dnebatz <dnebatz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 21:12:27 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/25 13:56:02 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/05 18:00:28 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,19 @@
 
 int main( void )
 {
-	int	i = 51;
-	ScavTrap* clap = new DiamondTrap("name");
-	
-	delete clap;
-	
+	// int	i = 101;
+	// ScavTrap* clap = new DiamondTrap("name");
+
+	// delete clap;
+
 	DiamondTrap c("Lion");
 	c.whoAmI();
-	while(--i)
-		c.attack("Tree");
-	c.beRepaired(1);
-	c.guardGate();
-	std::cout << "name of Diamond " << c.m_name << std::endl;
+	// while(--i)
+	// 	c.attack("Tree");
+	// c.takeDamage(10);
+	// c.beRepaired(1);
+	// c.guardGate();
+	// std::cout << "name of Diamond " << c.m_name << std::endl;
 
 	return (0);
 }

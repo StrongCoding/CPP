@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:42:25 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/24 18:46:40 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/05 16:52:39 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ class FragTrap : public ClapTrap
 		FragTrap();
 		FragTrap(std::string name);
 		~FragTrap();
+		FragTrap(FragTrap &copy);
+		FragTrap &operator =(FragTrap &source);
 		void highFivesGuys(void);
 };
 

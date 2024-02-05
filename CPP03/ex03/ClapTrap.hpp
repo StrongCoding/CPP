@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dnebatz <dnebatz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:06:47 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/25 13:51:19 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/05 15:09:24 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,10 @@ class ClapTrap
         virtual ~ClapTrap();
         ClapTrap(const ClapTrap &copy);
         ClapTrap &operator =(const ClapTrap &source);
+        ClapTrap &operator +(const ClapTrap &source);
         void attack(const std::string &target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-		// void setHitPoints(int newHitPoints);
-		// void setEnergyPoints(int newEnergyPoints);
-		// void setAttackDamage(int newAttackDamage);
-		// void setName(std::string newName);
-		// int	getHitPoints(void);
-		// int	getEnergyPoints(void);
-		// int getAttackDamage(void);
-		// std::string getName(void);
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dnebatz <dnebatz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:55:11 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/25 13:55:27 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/05 17:52:35 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ class DiamondTrap : public FragTrap, public ScavTrap
 		using FragTrap::m_hitPoints;
 		using ScavTrap::m_energyPoints;
 		using FragTrap::m_attackDamage;
-		// ClapTrap::m_name;
 		
 	public:
-	std::string m_name;
+		std::string m_name;
 		DiamondTrap();
 		DiamondTrap(std::string name);
+		~DiamondTrap();
+		DiamondTrap(const DiamondTrap &copy);
+		DiamondTrap &operator =(const DiamondTrap &source);
 		using ScavTrap::attack;
 		void whoAmI(void);
 };

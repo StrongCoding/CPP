@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 21:45:29 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/25 12:19:09 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/05 16:59:27 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class ScavTrap : virtual public ClapTrap
 	public:
 		ScavTrap();
 		ScavTrap(std::string name);
-		ScavTrap(ScavTrap &copy);
-		ScavTrap &operator =(ScavTrap &source);
+		ScavTrap(const ScavTrap &copy);
+		ScavTrap &operator =(const ScavTrap &source);
 		~ScavTrap();
 		void guardGate();
 };

@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 21:11:06 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/24 18:31:43 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/05 17:03:24 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void ClapTrap::takeDamage(unsigned int amount)
 	m_hitPoints -= amount;
 	if (m_hitPoints < 1 )
 		std::cout << "ClapTrap " << m_name << " died!" << std::endl;
-		
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -90,43 +89,3 @@ void ClapTrap::beRepaired(unsigned int amount)
 	else
 		std::cout << "ClapTrap " << m_name << " tries to repairs itself but is out of energy points" << std::endl;
 }
-
-// void ClapTrap::setHitPoints(int newHitPoints)
-// {
-// 	m_hitPoints = newHitPoints;
-// }
-
-// void ClapTrap::setEnergyPoints(int newEnergyPoints)
-// {
-// 	m_energyPoints = newEnergyPoints;
-// }
-
-// void ClapTrap::setAttackDamage(int newAttackDamage)
-// {
-// 	m_attackDamage = newAttackDamage;
-// }
-
-// void ClapTrap::setName(std::string newName)
-// {
-// 	m_name = newName;
-// }
-
-// int ClapTrap::getHitPoints(void)
-// {
-// 	return (m_hitPoints);
-// }
-
-// int ClapTrap::getEnergyPoints(void)
-// {
-// 	return (m_energyPoints);
-// }
-
-// int ClapTrap::getAttackDamage(void)
-// {
-// 	return (m_attackDamage);
-// }
-
-// std::string ClapTrap::getName(void)
-// {
-// 	return (m_name);
-// }

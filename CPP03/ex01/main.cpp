@@ -6,12 +6,13 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 21:12:27 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/01/24 18:39:21 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/05 16:24:30 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include <cstdint>
 
 int main( void )
 {
@@ -23,7 +24,7 @@ int main( void )
 	b.takeDamage(8);
 	a.beRepaired(1);
 	a = b;
-	a.takeDamage(20);
+	a.takeDamage(4294967295U);
 	a.beRepaired(2);
 	b.attack("Bjoern4");
 	b.attack("Bjoern5");
@@ -35,6 +36,7 @@ int main( void )
 	b.attack("Bjoern11");
 	ScavTrap c("Bjoern");
 	ScavTrap d;
+	d.guardGate();
 	while(--i)
 		c.attack("Tree");
 	d.takeDamage(1);
