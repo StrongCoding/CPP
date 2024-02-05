@@ -17,10 +17,12 @@
 
 class Dog : public Animal
 {
-	Dog();
-	~Dog();
-	Dog &operator =(const Dog &source);
-	Dog(Dog &copy);
+	public:
+		Dog();
+		~Dog();
+		Dog(const Dog &copy);
+		Dog &operator =(const Dog &source);
+		void	makeSound(void) const;
 };
 
 #endif

@@ -10,23 +10,23 @@
 /*																			*/
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 # include <iostream>
 
-class Animal
+class WrongAnimal
 {
 	protected:
 		std::string m_type;
 	
 	public:
-		Animal();
-		Animal(std::string type);
-		virtual ~Animal();
-		Animal &operator =(const Animal &source);
-		Animal(const Animal &copy);
+		WrongAnimal();
+		WrongAnimal(std::string type);
+		~WrongAnimal();
+		WrongAnimal &operator =(const WrongAnimal &source);
+		WrongAnimal(const WrongAnimal &copy);
 
-		virtual void	makeSound(void) const;
+		void	makeSound(void) const;
 		std::string		getType(void) const;
 };
 

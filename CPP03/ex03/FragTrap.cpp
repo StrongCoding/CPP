@@ -6,13 +6,13 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:42:12 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/05 16:58:11 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/05 19:24:34 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
 	std::cout << "a FragTrap is produced!" << std::endl;
 	m_hitPoints = 100;

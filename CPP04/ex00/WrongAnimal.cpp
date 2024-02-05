@@ -10,24 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */    
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
-	std::cout << "animal default constructor" << std::endl;
+	std::cout << "WrongAnimal default constructor" << std::endl;
 }
 
-Animal::Animal(std::string type) : m_type(type)
+WrongAnimal::WrongAnimal(std::string type) : m_type(type)
 {
-	std::cout << "animal constructor with type" << std::endl;
+	std::cout << "WrongAnimal constructor with type" << std::endl;
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "animal default deconstructor" << std::endl;
+	std::cout << "WrongAnimal default deconstructor" << std::endl;
 }
 
-Animal &Animal::operator=(const Animal &source)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &source)
 {
 	if (this != &source)
 	{
@@ -37,18 +37,18 @@ Animal &Animal::operator=(const Animal &source)
 	return (*this);
 }
 
-void Animal::makeSound(void) const
+void WrongAnimal::makeSound(void) const
 {
 	std::cout << "i dont make sounds" << std::endl;
 }
 
-Animal::Animal(const Animal &copy)
+WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
 	std::cout << "default copy constructor called" << std::endl;
 	*this = copy;
 }
 
-std::string Animal::getType(void) const
+std::string WrongAnimal::getType(void) const
 {
 	return (m_type);
 }
