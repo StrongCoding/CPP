@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 21:45:29 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/05 18:38:59 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/06 16:31:55 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 class ScavTrap : virtual public ClapTrap
 {
-	private:
+	protected:
+		int	m_energyPoints;
 
 	public:
 		ScavTrap();
