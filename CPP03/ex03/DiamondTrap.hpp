@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:55:11 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/05 18:15:58 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/06 16:31:45 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap
+class DiamondTrap :  public ScavTrap, public FragTrap
 {
 	private:
-		
 		using FragTrap::m_hitPoints;
 		using ScavTrap::m_energyPoints;
 		using FragTrap::m_attackDamage;
