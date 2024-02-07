@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 21:12:27 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/05 18:00:28 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/07 09:47:49 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main( void )
 	DiamondTrap c("Lion");
 	c.whoAmI();
 	// while(--i)
-	// 	c.attack("Tree");
+		c.attack("Tree");
 	// c.takeDamage(10);
 	// c.beRepaired(1);
 	// c.guardGate();

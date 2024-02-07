@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:04:57 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/06 10:16:27 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/07 20:30:20 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Ice::Ice()
 {
+	m_type = "ice";
 	std::cout << "im default constructor of Ice" << std::endl;
 }
 
@@ -36,4 +37,15 @@ Ice &Ice::operator=(Ice &source)
 		
 	}
 	return (*this);
+}
+
+AMateria *Ice::clone() const
+{
+	Ice *clone = new Ice;
+	return (clone);
+}
+
+void Ice::use(ICharacter &target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

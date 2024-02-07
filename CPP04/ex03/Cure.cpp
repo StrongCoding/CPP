@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:04:55 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/06 10:16:42 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/07 20:30:53 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Cure::Cure()
 {
+	m_type = "cure";
 	std::cout << "im default constructor of Cure" << std::endl;
 }
 
@@ -36,4 +37,15 @@ Cure &Cure::operator=(Cure &source)
 		
 	}
 	return (*this);
+}
+
+AMateria *Cure::clone() const
+{
+	Cure *clone = new Cure;
+	return (clone);
+}
+
+void Cure::use(ICharacter &target)
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

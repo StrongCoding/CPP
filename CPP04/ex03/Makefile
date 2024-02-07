@@ -1,12 +1,11 @@
 NAME = doggybrains
 
 SRC := 	main.cpp \
-		AbstractAnimal.cpp \
-		Dog.cpp \
-		Cat.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
-		Brain.cpp
+		AMateria.cpp \
+		Character.cpp \
+		Cure.cpp \
+		Ice.cpp \
+		MateriaSource.cpp
 
 
 OBJ := $(SRC:.cpp=.o)
