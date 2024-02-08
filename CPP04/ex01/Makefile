@@ -12,8 +12,7 @@ SRC := 	main.cpp \
 OBJ := $(SRC:.cpp=.o)
 
 CCFLAGS := -Wall -Wextra -Werror -std=c++98
-#CCFLAGS := -g -fsanitize=address
-#CCFLAGS := -g -fsanitize=thread
+#CCFLAGS := -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
 .PHONY: all bonus clean fclean re
 

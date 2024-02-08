@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 18:09:33 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/06 09:14:36 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/08 14:32:17 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ Cat::~Cat()
 
 Cat::Cat(const Cat &copy)
 {
+	m_brain = new Brain;
+	m_type = copy.m_type;
 	*this = copy;
 	std::cout << "Cat default copy constructor called" << std::endl;
 }
@@ -34,7 +36,10 @@ Cat::Cat(const Cat &copy)
 Cat &Cat::operator =(const Cat &source)
 {
 	if (this != &source)
+	{
 		m_type = source.m_type;
+		m_brain = source.m_brain;
+	}
 	std::cout << "Cat assignment overload called" << std::endl;
 	return (*this);
 }

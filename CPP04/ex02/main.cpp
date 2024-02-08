@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:53:54 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/06 09:44:22 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/08 14:58:59 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,38 @@
 
 int main()
 {
-	const AbstractAnimal* j = new Dog();
-	const AbstractAnimal* j2 = new Dog();
-	const AbstractAnimal* i = new Cat();
-	const AbstractAnimal* i2 = new Cat();
-	// const AbstractAnimal* y = new AbstractAnimal();
-	// delete y;
-	std::cout << "address of j: " << &j << std::endl;
-	std::cout << "address of j2: " << &j2 << std::endl;
-	std::cout << "address of i: " << &i << std::endl;
-	std::cout << "address of i2: " << &i2 << std::endl;
-	delete j;//should not create a leak
-	delete i;
-	delete j2;
-	delete i2;
+
+	AbstractAnimal *cage[100];
+
+	int i = -1;
+	while(++i < 100)
+	{
+		if (i % 2 == 0)
+			cage[i] = new Dog();
+		else
+			cage[i] = new Cat();
+	}
+	i = -1;
+	while (++i < 100)
+	{
+		cage[i]->makeSound();
+		delete cage[i];
+	}
+	const AbstractAnimal* dog = new Dog();
+	const AbstractAnimal* dog2 = new Dog();
+	const AbstractAnimal* cat = new Cat();
+	const AbstractAnimal* cat2 = new Cat();
+	// std::cout << "address of cat2 brain: " << &(cat2->m_brain) << std::endl;
+	// std::cout << "address of cat: brain" << &(cat->m_brain) << std::endl;
+	delete cat;//should not create a leak
+	delete cat2;
+	delete dog;
+	delete dog2;
+	
+	Cat miau;
+	{
+		Cat withbrain;
+	}
 	
 
 	return 0;

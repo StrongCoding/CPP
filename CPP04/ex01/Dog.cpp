@@ -30,6 +30,7 @@ Dog &Dog::operator =(const Dog &source)
 	if (this != &source)
 	{
 		m_type = source.m_type;
+		m_brain = source.m_brain;
 	}
 	std::cout << "Dog overloaded copy assignment operator called" << std::endl;
 	return (*this);
@@ -37,6 +38,9 @@ Dog &Dog::operator =(const Dog &source)
 
 Dog::Dog(const Dog &copy)
 {
+	std::cout << "Dog default copy constructor called" << std::endl;
+	m_type = copy.m_type;
+	m_brain = new Brain;
 	*this = copy;
 }
 
