@@ -6,13 +6,13 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:47:49 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/07 17:09:13 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/08 15:57:13 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria(std::string const &type)
+AMateria::AMateria(std::string const &type) : m_type(type)
 {
 	
 }

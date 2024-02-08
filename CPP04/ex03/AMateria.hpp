@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:47:50 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/07 20:29:01 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/08 15:57:37 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class AMateria
 	public:
 		AMateria(std::string const & type);
 		AMateria();
-		~AMateria();
+		virtual ~AMateria();
 		AMateria(const AMateria &copy);
 		AMateria &operator =(const AMateria &source);
 

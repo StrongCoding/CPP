@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:09:13 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/07 17:22:31 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/08 15:26:31 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Character : public ICharacter
 		
 	public:
 		Character();
+		Character(std::string name);
 		~Character();
 		Character(const Character &copy);
 		Character &operator =(const Character &source);

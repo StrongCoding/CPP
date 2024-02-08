@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 15:42:12 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/07 16:38:23 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/08 15:56:53 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class MateriaSource : public IMateriaSource
 		~MateriaSource();
 		MateriaSource(const MateriaSource &copy);
 		MateriaSource &operator =(const MateriaSource &source);
-		void leaernMateria(AMateria*);
+		void learnMateria(AMateria*);
 		AMateria* createMateria(std::string const & type);
 };
 
