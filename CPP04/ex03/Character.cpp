@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:09:10 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/08 15:38:30 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/09 11:40:57 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ void Character::equip(AMateria *m)
 void Character::unequip(int idx)
 {
 	if (idx < 4 && idx >= 0)
+	{
 		m_inventory[idx] = NULL;
+	}
 	std::cout << "unequipping slot " << idx << std::endl;
 }
 

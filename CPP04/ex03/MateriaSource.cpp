@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 15:44:22 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/08 15:59:49 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/09 10:46:48 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 	
 	while (++i < 4)
 	{
-		if((m_learntMateria[++i])->getType() == type)
+		if((m_learntMateria[i])->getType() == type)
 		{
 			AMateria* copy = m_learntMateria[i]->clone();
 			return (copy);

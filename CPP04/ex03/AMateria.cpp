@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:47:49 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/08 15:57:13 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/09 10:41:52 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,9 @@ AMateria &AMateria::operator=(const AMateria &source)
 std::string const &AMateria::getType() const
 {
 	return (m_type);
+}
+
+void AMateria::use(ICharacter &target)
+{
+	std::cout << "* Error i cannot do anything to " << target.getName() << " *" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:27:17 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/07 17:13:08 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/09 12:18:25 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int main()
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->unequip(tmp);
+
+	// add array of 10 and if this is full stuff gets deleted
 	
 	delete bob;
 	delete me;

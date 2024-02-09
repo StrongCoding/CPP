@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 15:42:12 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/08 15:56:53 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/09 10:24:23 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class MateriaSource : public IMateriaSource
 {
 	private:
-		AMateria *m_learntMateria[3];
+		AMateria *m_learntMateria[4];
 
 	public:
 		MateriaSource();
