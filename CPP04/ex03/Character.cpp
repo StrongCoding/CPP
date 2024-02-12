@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:09:10 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/12 10:01:10 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/12 13:47:30 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ Character::Character(std::string name) : m_name(name)
 Character::~Character()
 {
 	int i = -1;
-	while (m_inventory[++i] != NULL && i < 4)
-		delete m_inventory[i];
+	while (++i < 4)
+	{
+		if (m_inventory[i] != NULL)
+			delete m_inventory[i];
+	}
 	std::cout << "im default deconstructor of Character" << std::endl;
 }
 
@@ -66,7 +69,7 @@ void Character::equip(AMateria *m)
 	
 	while (m_inventory[++i] != NULL && i < 4)
 		;
-	if (i != 3)
+	if (i != 4)
 		m_inventory[i] = m;
 	else
 		std::cout << "Full inventory!" << std::endl;

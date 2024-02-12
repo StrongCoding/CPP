@@ -12,17 +12,17 @@ SRC := 	main.cpp \
 
 OBJ := $(SRC:.cpp=.o)
 
-#CCFLAGS := -Wall -Wextra -Werror -std=c++98 
-CCFLAGS := -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g
+#CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 .PHONY: all bonus clean fclean re
 
 all:$(NAME)
 
 $(NAME): $(OBJ)
-	c++ $(CCFLAGS) $(OBJ) -o $(NAME)
+	c++ $(CXXFLAGS) $(OBJ) -o $(NAME)
 $(OBJ): $(SRC)
-	c++ -c $(CCFLAGS) $(SRC)
+	c++ -c $(CXXFLAGS) $(SRC)
 clean:
 	rm -f $(OBJ)
 fclean: clean
