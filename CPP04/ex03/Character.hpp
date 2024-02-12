@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:09:13 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/08 15:26:31 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/12 10:00:29 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Character : public ICharacter
 		Character &operator =(const Character &source);
 		std::string const & getName() const;
 		void equip(AMateria* m);
-		void unequip(int idx);
+		void unequip(int idx, Ground *ground);
 		void use(int idx, ICharacter& target);
 
 };

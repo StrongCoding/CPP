@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 21:09:10 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/09 11:40:57 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/12 10:01:10 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,11 @@ void Character::equip(AMateria *m)
 		std::cout << "Full inventory!" << std::endl;
 }
 
-void Character::unequip(int idx)
+void Character::unequip(int idx, Ground *ground)
 {
 	if (idx < 4 && idx >= 0)
 	{
+		ground->setGround(m_inventory[idx]);
 		m_inventory[idx] = NULL;
 	}
 	std::cout << "unequipping slot " << idx << std::endl;

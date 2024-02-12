@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Ground.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 10:05:06 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/12 10:03:22 by dnebatz          ###   ########.fr       */
+/*   Created: 2024/02/12 09:21:39 by dnebatz           #+#    #+#             */
+/*   Updated: 2024/02/12 10:02:55 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
-# include "AMateria.hpp"
+#ifndef GROUND_HPP
+# define GROUND_HPP
 # include <iostream>
-# include "Ground.hpp"
+# include "AMateria.hpp"
 
 class AMateria;
-class Ground;
 
-class ICharacter
+class Ground
 {
 	private:
+		AMateria*		m_groudMaterias[4];
+		unsigned int	m_countGroundMaterias;
 
 	public:
-		virtual ~ICharacter();
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria *m) = 0;
-		virtual void unequip(int idx, Ground *ground) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
+		Ground();
+		~Ground();
+		Ground(Ground &source);
+		Ground &operator =(Ground &source);
+		void setGround(AMateria* newGroundMateria);
+		void showGroundMateria(void);
 };
 
 #endif
+

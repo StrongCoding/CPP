@@ -6,7 +6,8 @@ SRC := 	main.cpp \
 		ICharacter.cpp \
 		Cure.cpp \
 		Ice.cpp \
-		MateriaSource.cpp
+		MateriaSource.cpp \
+		Ground.cpp
 
 
 OBJ := $(SRC:.cpp=.o)
