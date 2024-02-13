@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:04:36 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/13 21:28:56 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/13 21:31:38 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,30 +49,30 @@ int main()
 	std::cout << "\033[1;33mBureaucrat with lowest access\033[0m\n" << std::endl;
 	Bureaucrat bca("A", 150);
 	std::cout << "\033[1;32mTrying to execute ShrubberyCreationForm\033[0m\n";
-	ShrubberyCreationForm scform1("home1");
-	scform1.execute(bca);
-	bca.executeForm(scform1);
+	ShrubberyCreationForm scform2("home1");
+	scform2.execute(bca);
+	bca.executeForm(scform2);
 	std::cout << "\033[1;32msigning it\033[0m\n";
-	bca.signForm(scform1);
-	scform1.execute(bca);
-	bca.executeForm(scform1);
+	bca.signForm(scform2);
+	scform2.execute(bca);
+	bca.executeForm(scform2);
 	std::cout << "\033[1;32mTrying to execute RobotomyRequestForm\033[0m\n";
-	RobotomyRequestForm rrform1("home2");
-	rrform1.execute(bca);
-	bca.executeForm(rrform1);
+	RobotomyRequestForm rrform2("home2");
+	rrform2.execute(bca);
+	bca.executeForm(rrform2);
 	std::cout << "\033[1;32msigning it\033[0m\n";
-	bca.signForm(rrform1);
-	rrform1.execute(bca);
-	bca.executeForm(rrform1);
+	bca.signForm(rrform2);
+	rrform2.execute(bca);
+	bca.executeForm(rrform2);
 	std::cout << std::endl;
 	std::cout << "\033[1;32mTrying to execute PresidentialPardonForm\033[0m\n";
-	PresidentialPardonForm ppform1("home2");
-	ppform1.execute(bca);
-	bca.executeForm(ppform1);
+	PresidentialPardonForm ppform2("home2");
+	ppform2.execute(bca);
+	bca.executeForm(ppform2);
 	std::cout << "\033[1;32msigning it\033[0m\n";
-	bca.signForm(ppform1);
-	ppform1.execute(bca);
-	bca.executeForm(ppform1);
+	bca.signForm(ppform2);
+	ppform2.execute(bca);
+	bca.executeForm(ppform2);
 	std::cout << std::endl;
 	std::cout << "\033[1;33mBureaucrat with 145 access\033[0m\n" << std::endl;
 	// change this value between 
@@ -81,30 +81,30 @@ int main()
 	//PresidentialPardonForm: Required grades: sign 25, exec 5
 	Bureaucrat bcb("A", 145);
 	std::cout << "\033[1;32mTrying to execute ShrubberyCreationForm\033[0m\n";
-	ShrubberyCreationForm scform1("home1");
-	scform1.execute(bcb);
-	bcb.executeForm(scform1);
+	ShrubberyCreationForm scform3("home1");
+	scform3.execute(bcb);
+	bcb.executeForm(scform3);
 	std::cout << "\033[1;32msigning it\033[0m\n";
-	bcb.signForm(scform1);
-	scform1.execute(bcb);
-	bcb.executeForm(scform1);
+	bcb.signForm(scform3);
+	scform3.execute(bcb);
+	bcb.executeForm(scform3);
 	std::cout << "\033[1;32mTrying to execute RobotomyRequestForm\033[0m\n";
-	RobotomyRequestForm rrform1("home2");
-	rrform1.execute(bcb);
-	bcb.executeForm(rrform1);
+	RobotomyRequestForm rrform3("home2");
+	rrform3.execute(bcb);
+	bcb.executeForm(rrform3);
 	std::cout << "\033[1;32msigning it\033[0m\n";
-	bcb.signForm(rrform1);
-	rrform1.execute(bcb);
-	bcb.executeForm(rrform1);
+	bcb.signForm(rrform3);
+	rrform3.execute(bcb);
+	bcb.executeForm(rrform3);
 	std::cout << std::endl;
 	std::cout << "\033[1;32mTrying to execute PresidentialPardonForm\033[0m\n";
-	PresidentialPardonForm ppform1("home2");
-	ppform1.execute(bcb);
-	bcb.executeForm(ppform1);
+	PresidentialPardonForm ppform3("home2");
+	ppform3.execute(bcb);
+	bcb.executeForm(ppform3);
 	std::cout << "\033[1;32msigning it\033[0m\n";
-	bcb.signForm(ppform1);
-	ppform1.execute(bcb);
-	bcb.executeForm(ppform1);
+	bcb.signForm(ppform3);
+	ppform3.execute(bcb);
+	bcb.executeForm(ppform3);
 	std::cout << std::endl;
 	
 	return (0);
