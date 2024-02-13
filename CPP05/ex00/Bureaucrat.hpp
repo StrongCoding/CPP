@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:04:29 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/13 11:10:52 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/13 15:41:44 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,16 @@ class Bureaucrat
 		unsigned int getGrade(void);
 		void decrementGrade(void);
 		void incrementGrade(void);
-		void leckmich(void);
+		class GradeToHighException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+		class GradeToLowException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat& source);

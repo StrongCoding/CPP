@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:04:31 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/13 11:11:44 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/13 15:57:59 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,21 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade): m_name(name)
 {
 	try
 	{
-		if (grade <= 150 && grade >= 1)
-			m_grade = grade;
+		if (grade > 150)
+			throw Bureaucrat::GradeToLowException();
+		else if (grade < 1)
+			throw Bureaucrat::GradeToHighException();
 		else
-			throw std::exception();
+			m_grade = grade;
 	}
-	catch (const std::exception &e)
+	catch(const Bureaucrat::GradeToLowException &exception)
 	{
-		std::cout << "grade is out of range, was set to the lowest grade" << std::endl;
+		std::cout << exception.what() << std::endl;
+		m_grade = 150;
+	}
+	catch(const Bureaucrat::GradeToHighException &exception)
+	{
+		std::cout << exception.what() << std::endl;
 		m_grade = 150;
 	}
 }
@@ -69,13 +76,13 @@ void Bureaucrat::decrementGrade(void)
 	try
 	{
 		if (m_grade == 150)
-			throw std::exception();
+			throw Bureaucrat::GradeToLowException();
 		else
 			m_grade++;
 	}
-	catch(const std::exception& e)
+	catch(const Bureaucrat::GradeToLowException &exception)
 	{
-		std::cout << "Error: already reached maximum grade !" << std::endl;
+		std::cout << exception.what() << std::endl;
 	}
 	
 
@@ -86,17 +93,27 @@ void Bureaucrat::incrementGrade(void)
 	try
 	{
 		if (m_grade == 1)
-			throw std::exception();
+			throw Bureaucrat::GradeToHighException();
 		else
 			m_grade--;
 	}
-	catch (const std::exception &e)
+	catch (const Bureaucrat::GradeToHighException &exception)
 	{
-		std::cout << "Error: already reached maximum grade !" << std::endl;
+		std::cout << exception.what() << std::endl;
 	}
 }
 
 std::ostream &operator<<(std::ostream &resultstream, Bureaucrat &source)
 {
 	return(resultstream << source.getName() << ", bureaucrat grade " << source.getGrade() << ".");
+}
+
+const char *Bureaucrat::GradeToHighException::what() const throw()
+{
+	return ("Error: grade too high!");
+}
+
+const char *Bureaucrat::GradeToLowException::what() const throw()
+{
+	return ("Error: grade too low!");
 }
