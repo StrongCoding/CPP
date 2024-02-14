@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:06:10 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/13 17:40:15 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/14 15:44:53 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,37 +23,17 @@ Form::Form(std::string name): m_name(name), m_signed(false), m_neededGradeSign(1
 
 Form::Form(std::string name, unsigned int new_neededGradeSign, unsigned int new_neededGradeExecute) : m_name(name), m_signed(false), m_neededGradeSign(new_neededGradeSign), m_neededGradeExecute(new_neededGradeExecute)
 {
-	try
-	{
-		if (new_neededGradeSign > 150 || new_neededGradeExecute > 150)
-			throw Form::GradeToLowException();
-		else if (new_neededGradeSign < 1 || new_neededGradeExecute < 1)
-			throw Form::GradeToHighException();
-		else
-		{
-			m_neededGradeSign = new_neededGradeSign;
-			m_neededGradeExecute = new_neededGradeExecute;
-		}
-	}
-	catch(const Form::GradeToLowException &exception)
-	{
-		std::cout << exception.what() << std::endl;
-		m_neededGradeSign = 150;
-		m_neededGradeExecute = 150;
-	}
-	catch(const Form::GradeToHighException &exception)
-	{
-		std::cout << exception.what() << std::endl;
-		m_neededGradeSign = 150;
-		m_neededGradeExecute = 150;
-	}
+	if (new_neededGradeSign > 150 || new_neededGradeExecute > 150)
+		throw Form::GradeToLowException();
+	else if (new_neededGradeSign < 1 || new_neededGradeExecute < 1)
+		throw Form::GradeToHighException();
 }
 
 Form::~Form()
 {
 }
 
-Form::Form(Form &copy)
+Form::Form(Form &copy) : m_neededGradeSign(copy.m_neededGradeSign), m_neededGradeExecute(copy.m_neededGradeExecute)
 {
 	*this = copy;
 }
@@ -63,8 +43,6 @@ Form &Form::operator=(Form &source)
 	if (this != &source)
 	{
 		m_signed = source.m_signed;
-		m_neededGradeSign = source.m_neededGradeSign;
-		m_neededGradeExecute = source.m_neededGradeExecute;
 	}
 	return (*this);
 }

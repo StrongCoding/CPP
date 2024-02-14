@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:04:36 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/13 16:03:29 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/14 17:12:19 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int main()
 {
+	try
+	{
 	std::cout << "construction first Bureaucrat 150" << std::endl;
 	Bureaucrat a("A", 150);
 	std::cout << "trying to decrement grade" << std::endl;
@@ -39,5 +41,16 @@ int main()
 	std::cout << "trying to increment grade" << std::endl;
 	f.incrementGrade();
 	std::cout << f << std::endl;
+
+	}
+	catch(const Bureaucrat::GradeToLowException &exception)
+	{
+		std::cout << exception.what() << std::endl;
+	}
+	catch(const Bureaucrat::GradeToHighException &exception)
+	{
+		std::cout << exception.what() << std::endl;
+	}
+	
 	return (0);
 }

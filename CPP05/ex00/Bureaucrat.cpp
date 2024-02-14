@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:04:31 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/13 17:24:04 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/14 17:37:48 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,17 @@ Bureaucrat::Bureaucrat(std::string name): m_name(name), m_grade(150)
 
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade): m_name(name)
 {
-	try
-	{
-		if (grade > 150)
-			throw Bureaucrat::GradeToLowException();
-		else if (grade < 1)
-			throw Bureaucrat::GradeToHighException();
-		else
-			m_grade = grade;
-	}
-	catch(const Bureaucrat::GradeToLowException &exception)
-	{
-		std::cout << exception.what() << std::endl;
-		m_grade = 150;
-	}
-	catch(const Bureaucrat::GradeToHighException &exception)
-	{
-		std::cout << exception.what() << std::endl;
-		m_grade = 150;
-	}
+	if (grade > 150)
+		throw Bureaucrat::GradeToLowException();
+	else if (grade < 1)
+		throw Bureaucrat::GradeToHighException();
 }
 
 Bureaucrat::~Bureaucrat()
 {
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &copy)
+Bureaucrat::Bureaucrat(Bureaucrat &copy) : m_name(copy.m_name)
 {
 	*this = copy;
 }
@@ -73,34 +58,18 @@ unsigned int Bureaucrat::getGrade(void)
 
 void Bureaucrat::decrementGrade(void)
 {
-	try
-	{
-		if (m_grade == 150)
-			throw Bureaucrat::GradeToLowException();
-		else
-			m_grade++;
-	}
-	catch(const Bureaucrat::GradeToLowException &exception)
-	{
-		std::cout << exception.what() << std::endl;
-	}
-	
-
+	if (m_grade == 150)
+		throw Bureaucrat::GradeToLowException();
+	else
+		m_grade++;
 }
 
 void Bureaucrat::incrementGrade(void)
 {
-	try
-	{
-		if (m_grade == 1)
-			throw Bureaucrat::GradeToHighException();
-		else
-			m_grade--;
-	}
-	catch (const Bureaucrat::GradeToHighException &exception)
-	{
-		std::cout << exception.what() << std::endl;
-	}
+	if (m_grade == 1)
+		throw Bureaucrat::GradeToHighException();
+	else
+		m_grade--;
 }
 
 std::ostream &operator<<(std::ostream &resultstream, Bureaucrat &source)

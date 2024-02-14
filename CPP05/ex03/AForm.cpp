@@ -23,37 +23,17 @@ AForm::AForm(std::string name): m_name(name), m_signed(false), m_neededGradeSign
 
 AForm::AForm(std::string name, unsigned int new_neededGradeSign, unsigned int new_neededGradeExecute) : m_name(name), m_signed(false), m_neededGradeSign(new_neededGradeSign), m_neededGradeExecute(new_neededGradeExecute)
 {
-	try
-	{
-		if (new_neededGradeSign > 150 || new_neededGradeExecute > 150)
-			throw AForm::GradeToLowException();
-		else if (new_neededGradeSign < 1 || new_neededGradeExecute < 1)
-			throw AForm::GradeToHighException();
-		else
-		{
-			m_neededGradeSign = new_neededGradeSign;
-			m_neededGradeExecute = new_neededGradeExecute;
-		}
-	}
-	catch(const AForm::GradeToLowException &exception)
-	{
-		std::cout << exception.what() << std::endl;
-		m_neededGradeSign = 150;
-		m_neededGradeExecute = 150;
-	}
-	catch(const AForm::GradeToHighException &exception)
-	{
-		std::cout << exception.what() << std::endl;
-		m_neededGradeSign = 150;
-		m_neededGradeExecute = 150;
-	}
+	if (new_neededGradeSign > 150 || new_neededGradeExecute > 150)
+		throw AForm::GradeToLowException();
+	else if (new_neededGradeSign < 1 || new_neededGradeExecute < 1)
+		throw AForm::GradeToHighException();
 }
 
 AForm::~AForm()
 {
 }
 
-AForm::AForm(AForm &copy)
+AForm::AForm(AForm &copy) : m_neededGradeSign(copy.m_neededGradeSign), m_neededGradeExecute(copy.m_neededGradeExecute)
 {
 	*this = copy;
 }
@@ -63,8 +43,6 @@ AForm &AForm::operator=(AForm &source)
 	if (this != &source)
 	{
 		m_signed = source.m_signed;
-		m_neededGradeSign = source.m_neededGradeSign;
-		m_neededGradeExecute = source.m_neededGradeExecute;
 	}
 	return (*this);
 }

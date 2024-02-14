@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:04:36 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/14 10:09:42 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/14 17:13:26 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 int main()
 {
+	try
+	{
 	std::cout << "\033[1;33mBureaucrat with highest access\033[0m\n" << std::endl;
 	Bureaucrat a("A", 1);
 	std::cout << "\033[1;32mTrying to execute ShrubberyCreationForm\033[0m\n";
@@ -106,6 +108,16 @@ int main()
 	ppform3.execute(bcb);
 	bcb.executeForm(ppform3);
 	std::cout << std::endl;
+
+	}
+	catch(const Bureaucrat::GradeToLowException &exception)
+	{
+		std::cout << exception.what() << std::endl;
+	}
+	catch(const Bureaucrat::GradeToHighException &exception)
+	{
+		std::cout << exception.what() << std::endl;
+	}
 	
 	return (0);
 }

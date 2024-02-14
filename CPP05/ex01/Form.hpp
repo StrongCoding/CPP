@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:06:07 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/13 17:39:52 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/14 15:13:47 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class Bureaucrat;
 class Form
 {
 	private:
-		std::string		m_name;
-		bool			m_signed;
-		unsigned int	m_neededGradeSign;
-		unsigned int	m_neededGradeExecute;
+		const std::string		m_name;
+		bool				m_signed;
+		const unsigned int	m_neededGradeSign;
+		const unsigned int	m_neededGradeExecute;
 
 	public:
 		Form();

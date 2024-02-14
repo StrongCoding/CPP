@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:04:36 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/13 17:46:47 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/14 17:12:36 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 int main()
 {
+	try
+	{
 	std::cout << "\033[1;33mConstructing some Forms\033[0m\n" << std::endl;
 	std::cout << "construction first Form 151 151" << std::endl;
 	Form fa("FA", 151, 151);
@@ -73,5 +75,16 @@ int main()
 	std::cout << std::endl;
 	std::cout << "A trying to sign form FF" << std::endl;
 	a.signForm(ff);
+
+	}
+
+	catch(const Bureaucrat::GradeToLowException &exception)
+	{
+		std::cout << exception.what() << std::endl;
+	}
+	catch(const Bureaucrat::GradeToHighException &exception)
+	{
+		std::cout << exception.what() << std::endl;
+	}
 	return (0);
 }

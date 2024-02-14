@@ -36,7 +36,12 @@ Intern &Intern::operator=(Intern &source)
 {
 	if (this != &source)
 	{
-
+		m_availableForms[0] = source.m_availableForms[0];
+		m_availableForms[1] = source.m_availableForms[1];
+		m_availableForms[2] = source.m_availableForms[2];
+		m_formFunctions[0] = source.m_formFunctions[0];
+		m_formFunctions[1] = source.m_formFunctions[1];
+		m_formFunctions[2] = source.m_formFunctions[2];
 	}
 	return (*this);
 }

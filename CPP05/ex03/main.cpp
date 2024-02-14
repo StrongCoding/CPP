@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:04:36 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/14 10:06:59 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/14 17:15:06 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 int main()
 {
 
+	try
+	{
 	Intern someRandomIntern;
 	AForm* rrf;
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
@@ -123,6 +125,16 @@ int main()
 	delete scform3;
 	delete rrform3;
 	delete ppform3;
+
+	}
+	catch(const Bureaucrat::GradeToLowException &exception)
+	{
+		std::cout << exception.what() << std::endl;
+	}
+	catch(const Bureaucrat::GradeToHighException &exception)
+	{
+		std::cout << exception.what() << std::endl;
+	}
 	
 	return (0);
 }
