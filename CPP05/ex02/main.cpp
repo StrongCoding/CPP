@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:04:36 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/14 09:57:01 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/14 10:09:42 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,19 +106,6 @@ int main()
 	ppform3.execute(bcb);
 	bcb.executeForm(ppform3);
 	std::cout << std::endl;
-	
-	delete &a;
-	delete &bca;
-	delete &bcb;
-	delete &scform1;
-	delete &scform2;
-	delete &scform3;
-	delete &rrform1;
-	delete &rrform2;
-	delete &rrform3;
-	delete &ppform1;
-	delete &ppform2;
-	delete &ppform3;
 	
 	return (0);
 }
