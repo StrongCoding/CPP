@@ -42,8 +42,7 @@ void ScalarConverter::convert(std::string input)
 	intNumber = static_cast<int>(doubleNumber);
 	floatNumber = static_cast<float>(doubleNumber);
 
-
-	if ((doubleNumber == 0 && input != "0") || input == "nan" || input == "+inf" || input == "-inf")
+	if ((doubleNumber == 0 && input != "0"))
 	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
@@ -66,4 +65,27 @@ void ScalarConverter::convert(std::string input)
 	std::cout << "int  :" << intNumber << std::endl;
 	std::cout << "float:" << floatNumber << std::endl;
 	std::cout << "double:" << doubleNumber << std::endl;
+}
+
+int checkType(std::string input)
+{
+	// cast operator
+	// check if its float
+	
+	// check if its only numbers
+	if (isNumber(input))
+	{
+		//its an int -> check for overflow
+	}
+}
+
+bool	isNumber(std::string str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		if (!isdigit(str[i]))
+			return (false);
+	return (true);
 }
