@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:03:22 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/15 09:19:46 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/15 16:26:26 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <iostream>
 # include <sstream>
 # include <limits>
+# include <iomanip>
 
 class ScalarConverter
 {
@@ -27,7 +28,13 @@ class ScalarConverter
 		~ScalarConverter();
 		static void convert(std::string input);
 		static unsigned int	isNumber(std::string str);
-		static int checkType(std::string input);
+		static std::string checkType(std::string input);
+		static unsigned int	countDots(std::string str);
+		static void	convertChar(std::string str);
+		static void	convertInt(std::string str);
+		static void	convertFloat(std::string str);
+		static void	convertDouble(std::string str);
+		static void	printCrap(void);
 };
 
 #endif

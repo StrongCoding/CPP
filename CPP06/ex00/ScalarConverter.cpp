@@ -30,58 +30,61 @@ ScalarConverter &ScalarConverter::operator=(ScalarConverter &source)
 
 void ScalarConverter::convert(std::string input)
 {
-	char	charNumber;
-	int		intNumber;
-	float	floatNumber;
-	double	doubleNumber;
-
-	std::stringstream stringstream(input);
-	stringstream >> doubleNumber;
-
-	charNumber = static_cast<char>(doubleNumber);
-	intNumber = static_cast<int>(doubleNumber);
-	floatNumber = static_cast<float>(doubleNumber);
-
-	if ((doubleNumber == 0 && input != "0"))
+	std::string types[4] = {"char", "int", "float", "double"};
+	int i = 0;
+	while (i < 4)
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: impossible" << std::endl;
-		std::cout << "double: impossible" << std::endl;
-		return;
+		if (types[i] == checkType(input))
+			break;
+		i++;
 	}
-	if (doubleNumber > 127 || doubleNumber < 0)
+	switch (i)
 	{
-		std::cout << "char: impossible" << std::endl;
+		case 0:
+			convertChar(input);
+			break;
+		case 1:
+			convertInt(input);
+			break;
+		case 2:
+			convertFloat(input);
+			break;
+		case 3:
+			convertDouble(input);
+			break;
+		default:
+			printCrap();
+			break;
 	}
-	else if (doubleNumber < 32 || doubleNumber > 126)
-	{
-		std::cout << "char: Non displayable" << std::endl;
-	}
-	else
-	{
-		std::cout << "char :" << charNumber << std::endl;
-	}
-	std::cout << "int  :" << intNumber << std::endl;
-	std::cout << "float:" << floatNumber << std::endl;
-	std::cout << "double:" << doubleNumber << std::endl;
 }
 
-int ScalarConverter::checkType(std::string input)
+std::string ScalarConverter::checkType(std::string input)
 {
 	int notDigitCount = ScalarConverter::isNumber(input);
-	long double ldNumber;
-	if (notDigitCount)
-	{
-			std::stringstream stringstream(input);
-			stringstream >> ldNumber;
-			if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
-				|| static_cast<long long>(std::numeric_limits<int>::min()))
-				return (1);
-			else
-				return (0);
-	}
-	return (0);
+	int	countDots = ScalarConverter::countDots(input);
+	int	inputLength = input.length();
+	if (!inputLength)
+		return ("crap");
+	if (notDigitCount == 1 && inputLength == 1)
+		return ("char");
+	else if (notDigitCount == 0)
+		return ("int");
+	else if (notDigitCount == 1 && (input[0] == '-' || input[0] == '+'))
+		return ("int");	
+	else if (notDigitCount == 2 && countDots == 1 && input[inputLength - 1] == 'f')
+		return ("float");	
+	else if (notDigitCount == 3 && countDots == 1 && input[inputLength - 1] == 'f' && (input[0] == '-' || input[0] == '+'))
+		return ("float");
+	else if (notDigitCount == 1 && countDots == 1)
+		return ("double");
+	else if (notDigitCount == 2 && countDots == 1 && (input[0] == '-' || input[0] == '+'))
+		return ("double");
+	else if (input == "+inf" || input == "-inf" || input == "nan")
+		return ("double");
+	else if (input == "+inff" || input == "-inff" || input == "nanf")
+		return ("float");//maybe +inf or -inf
+	else
+		return ("crap"); //maybe shit input
 }
 
 unsigned int	ScalarConverter::isNumber(std::string str)
@@ -94,3 +97,51 @@ unsigned int	ScalarConverter::isNumber(std::string str)
 			notDigitCount++;
 	return (notDigitCount);
 }
+
+unsigned int	ScalarConverter::countDots(std::string str)
+{
+	int i = -1;
+	unsigned int countDots = 0;
+
+	while (str[++i])
+		if (str[i] == '.')
+			countDots++;
+	return (countDots);
+}
+
+void ScalarConverter::convertChar(std::string str)
+{
+	std::cout << str << "is a char" << std::endl;
+}
+
+void ScalarConverter::convertInt(std::string str)
+{
+	long double ldNumber;
+	std::stringstream stringstream(str);
+	stringstream >> ldNumber;
+	if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
+			|| ldNumber < static_cast<long long>(std::numeric_limits<int>::min()))
+		std::cout << "integer too high" << std::endl;
+	else
+		std::cout << "integer" << std::endl;
+}
+
+void ScalarConverter::convertFloat(std::string str)
+{
+	std::cout << str << "is a float" << std::endl;
+}
+
+void ScalarConverter::convertDouble(std::string str)
+{
+	std::cout << str << "is a double" << std::endl;
+}
+
+void ScalarConverter::printCrap(void)
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: impossible" << std::endl;
+	std::cout << "double: impossible" << std::endl;
+}
+
+
