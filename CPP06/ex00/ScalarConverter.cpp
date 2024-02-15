@@ -67,25 +67,30 @@ void ScalarConverter::convert(std::string input)
 	std::cout << "double:" << doubleNumber << std::endl;
 }
 
-int checkType(std::string input)
+int ScalarConverter::checkType(std::string input)
 {
-	// cast operator
-	// check if its float
-	
-	// check if its only numbers
-	if (isNumber(input))
+	int notDigitCount = ScalarConverter::isNumber(input);
+	long double ldNumber;
+	if (notDigitCount)
 	{
-		//its an int -> check for overflow
+			std::stringstream stringstream(input);
+			stringstream >> ldNumber;
+			if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
+				|| static_cast<long long>(std::numeric_limits<int>::min()))
+				return (1);
+			else
+				return (0);
 	}
+	return (0);
 }
 
-bool	isNumber(std::string str)
+unsigned int	ScalarConverter::isNumber(std::string str)
 {
-	int	i;
+	int i = -1;
+	unsigned int notDigitCount = 0;
 
-	i = -1;
 	while (str[++i])
 		if (!isdigit(str[i]))
-			return (false);
-	return (true);
+			notDigitCount++;
+	return (notDigitCount);
 }
