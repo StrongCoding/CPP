@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:03:22 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/15 16:26:26 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/15 17:12:26 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class ScalarConverter
 		static void	convertFloat(std::string str);
 		static void	convertDouble(std::string str);
 		static void	printCrap(void);
+		static void printChar(char c);
 };
 
 #endif

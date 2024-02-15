@@ -82,9 +82,9 @@ std::string ScalarConverter::checkType(std::string input)
 	else if (input == "+inf" || input == "-inf" || input == "nan")
 		return ("double");
 	else if (input == "+inff" || input == "-inff" || input == "nanf")
-		return ("float");//maybe +inf or -inf
+		return ("float");
 	else
-		return ("crap"); //maybe shit input
+		return ("crap");
 }
 
 unsigned int	ScalarConverter::isNumber(std::string str)
@@ -116,14 +116,27 @@ void ScalarConverter::convertChar(std::string str)
 
 void ScalarConverter::convertInt(std::string str)
 {
-	long double ldNumber;
+	// long double	ldNumber = 0;
+	char		charNumber = 0;
+	int			intNumber = 0;
+	float		floatNumber = 0;
+	double		doubleNumber = 0;
 	std::stringstream stringstream(str);
-	stringstream >> ldNumber;
-	if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
-			|| ldNumber < static_cast<long long>(std::numeric_limits<int>::min()))
-		std::cout << "integer too high" << std::endl;
-	else
-		std::cout << "integer" << std::endl;
+	// stringstream >> ldNumber;
+	// if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
+	// 		|| ldNumber < static_cast<long long>(std::numeric_limits<int>::min()))
+	// 	std::cout << "integer would have been overflowed" << std::endl;
+		
+	stringstream >> intNumber;
+	charNumber = static_cast<char>(intNumber);
+	floatNumber = static_cast<float>(intNumber);
+	doubleNumber = static_cast<double>(intNumber); 
+	std::cout << std::setprecision(1) << std::fixed;
+	printChar(charNumber);
+	std::cout << "int: " << intNumber << std::endl;
+	std::cout << "float: " << floatNumber << "f" << std::endl;
+	std::cout << "double: " << doubleNumber << std::endl;
+	
 }
 
 void ScalarConverter::convertFloat(std::string str)
@@ -144,4 +157,12 @@ void ScalarConverter::printCrap(void)
 	std::cout << "double: impossible" << std::endl;
 }
 
-
+void ScalarConverter::printChar(char c)
+{
+	if (c > 127 || c < 0)
+		std::cout << "char: impossible" << std::endl;
+	else if (c < 32 || c > 126)
+		std::cout << "char: not printable" << std::endl;
+	else
+		std::cout << "char: " << c << std::endl;
+}
