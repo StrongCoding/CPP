@@ -1,4 +1,3 @@
-#include "ScalarConverter.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:03:20 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/14 14:03:21 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/19 07:33:51 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +66,6 @@ std::string ScalarConverter::checkType(std::string input)
 		return ("crap");
 	if (inputLength == 1)
 		return ("char");
-	// if (notDigitCount == 1 && inputLength == 1) 
-	// 	return ("char");
 	else if (notDigitCount == 0)
 		return ("int");
 	else if (notDigitCount == 1 && (input[0] == '-' || input[0] == '+'))
@@ -113,18 +110,12 @@ unsigned int	ScalarConverter::countDots(std::string str)
 
 void ScalarConverter::convertChar(std::string str)
 {
-	std::cout << str << " is a char" << std::endl;
-	// long double	ldNumber = 0;
 	char		charNumber = 0;
 	int			intNumber = 0;
 	float		floatNumber = 0;
 	double		doubleNumber = 0;
-	charNumber = str[0];
-	// stringstream >> ldNumber;
-	// if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
-	// 		|| ldNumber < static_cast<long long>(std::numeric_limits<int>::min()))
-	// 	std::cout << "integer would have been overflowed" << std::endl;
 
+	charNumber = str[0];
 	intNumber = static_cast<int>(charNumber);
 	floatNumber = static_cast<float>(charNumber);
 	doubleNumber = static_cast<double>(charNumber); 
@@ -137,17 +128,19 @@ void ScalarConverter::convertChar(std::string str)
 
 void ScalarConverter::convertInt(std::string str)
 {
-	// long double	ldNumber = 0;
+	long double	ldNumber = 0;
 	char		charNumber = 0;
 	int			intNumber = 0;
 	float		floatNumber = 0;
 	double		doubleNumber = 0;
 	std::stringstream stringstream(str);
-	// stringstream >> ldNumber;
-	// if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
-	// 		|| ldNumber < static_cast<long long>(std::numeric_limits<int>::min()))
-	// 	std::cout << "integer would have been overflowed" << std::endl;
-		
+	std::stringstream overFlowCheck(str);
+
+	overFlowCheck >> ldNumber;
+	if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
+			|| ldNumber < static_cast<long long>(std::numeric_limits<int>::min()))
+		std::cout << "Information: input not in int range" << std::endl;
+
 	stringstream >> intNumber;
 	charNumber = static_cast<char>(intNumber);
 	floatNumber = static_cast<float>(intNumber);
@@ -161,20 +154,30 @@ void ScalarConverter::convertInt(std::string str)
 
 void ScalarConverter::convertFloat(std::string str)
 {
-	std::cout << str << " is a float" << std::endl;
-	// long double	ldNumber = 0;
+	long double	ldNumber = 0;
 	char		charNumber = 0;
 	int			intNumber = 0;
 	float		floatNumber = 0;
 	double		doubleNumber = 0;
 	
-	// stringstream >> ldNumber;
-	// if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
-	// 		|| ldNumber < static_cast<long long>(std::numeric_limits<int>::min()))
-	// 	std::cout << "integer would have been overflowed" << std::endl;
-	str[str.length() - 1] = 0;
-	std::stringstream stringstream(str);	
-	stringstream >> floatNumber;
+	if (str == "+inff")
+		floatNumber = std::numeric_limits<float>::infinity();
+	else if (str == "-inff")
+		floatNumber= -std::numeric_limits<float>::infinity();
+	else if (str == "nanf")
+		floatNumber = std::numeric_limits<float>::quiet_NaN();
+	else
+	{
+		str[str.length() - 1] = 0;	
+		std::stringstream overFlowCheck(str);
+		std::stringstream stringstream(str);
+		overFlowCheck >> ldNumber;
+		if (ldNumber > static_cast<long long>(std::numeric_limits<float>::max())
+				|| ldNumber < static_cast<long long>(std::numeric_limits<float>::min()))
+			std::cout << "Information: input not in float range" << std::endl;
+		stringstream >> floatNumber;
+	}
+
 	charNumber = static_cast<char>(floatNumber);
 	intNumber = static_cast<int>(floatNumber);
 	doubleNumber = static_cast<double>(floatNumber); 
@@ -187,19 +190,29 @@ void ScalarConverter::convertFloat(std::string str)
 
 void ScalarConverter::convertDouble(std::string str)
 {
-	std::cout << str << "is a double" << std::endl;
-		// long double	ldNumber = 0;
+	long double	ldNumber = 0;
 	char		charNumber = 0;
 	int			intNumber = 0;
 	float		floatNumber = 0;
 	double		doubleNumber = 0;
-	std::stringstream stringstream(str);
-	// stringstream >> ldNumber;
-	// if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
-	// 		|| ldNumber < static_cast<long long>(std::numeric_limits<int>::min()))
-	// 	std::cout << "integer would have been overflowed" << std::endl;
-	
-	stringstream >> doubleNumber;
+
+	if (str == "+inf")
+		doubleNumber = std::numeric_limits<double>::infinity();
+	else if (str == "-inf")
+		doubleNumber= -std::numeric_limits<double>::infinity();
+	else if (str == "nan")
+		doubleNumber = std::numeric_limits<double>::quiet_NaN();
+	else
+	{
+		std::stringstream overFlowCheck(str);
+		std::stringstream stringstream(str);
+		
+		overFlowCheck >> ldNumber;
+		if (ldNumber > static_cast<long long>(std::numeric_limits<float>::max())
+				|| ldNumber < static_cast<long long>(std::numeric_limits<float>::min()))
+			std::cout << "Information: input not in double range" << std::endl;
+		stringstream >> doubleNumber;
+	}
 	charNumber = static_cast<char>(doubleNumber);
 	intNumber = static_cast<int>(doubleNumber);
 	floatNumber = static_cast<float>(doubleNumber); 
