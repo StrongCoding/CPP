@@ -65,8 +65,10 @@ std::string ScalarConverter::checkType(std::string input)
 	int	inputLength = input.length();
 	if (!inputLength)
 		return ("crap");
-	if (notDigitCount == 1 && inputLength == 1)
+	if (inputLength == 1)
 		return ("char");
+	// if (notDigitCount == 1 && inputLength == 1) 
+	// 	return ("char");
 	else if (notDigitCount == 0)
 		return ("int");
 	else if (notDigitCount == 1 && (input[0] == '-' || input[0] == '+'))
@@ -111,7 +113,26 @@ unsigned int	ScalarConverter::countDots(std::string str)
 
 void ScalarConverter::convertChar(std::string str)
 {
-	std::cout << str << "is a char" << std::endl;
+	std::cout << str << " is a char" << std::endl;
+	// long double	ldNumber = 0;
+	char		charNumber = 0;
+	int			intNumber = 0;
+	float		floatNumber = 0;
+	double		doubleNumber = 0;
+	charNumber = str[0];
+	// stringstream >> ldNumber;
+	// if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
+	// 		|| ldNumber < static_cast<long long>(std::numeric_limits<int>::min()))
+	// 	std::cout << "integer would have been overflowed" << std::endl;
+
+	intNumber = static_cast<int>(charNumber);
+	floatNumber = static_cast<float>(charNumber);
+	doubleNumber = static_cast<double>(charNumber); 
+	std::cout << std::setprecision(1) << std::fixed;
+	printChar(charNumber);
+	std::cout << "int: " << intNumber << std::endl;
+	std::cout << "float: " << floatNumber << "f" << std::endl;
+	std::cout << "double: " << doubleNumber << std::endl;
 }
 
 void ScalarConverter::convertInt(std::string str)
@@ -136,17 +157,57 @@ void ScalarConverter::convertInt(std::string str)
 	std::cout << "int: " << intNumber << std::endl;
 	std::cout << "float: " << floatNumber << "f" << std::endl;
 	std::cout << "double: " << doubleNumber << std::endl;
-	
 }
 
 void ScalarConverter::convertFloat(std::string str)
 {
-	std::cout << str << "is a float" << std::endl;
+	std::cout << str << " is a float" << std::endl;
+	// long double	ldNumber = 0;
+	char		charNumber = 0;
+	int			intNumber = 0;
+	float		floatNumber = 0;
+	double		doubleNumber = 0;
+	
+	// stringstream >> ldNumber;
+	// if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
+	// 		|| ldNumber < static_cast<long long>(std::numeric_limits<int>::min()))
+	// 	std::cout << "integer would have been overflowed" << std::endl;
+	str[str.length() - 1] = 0;
+	std::stringstream stringstream(str);	
+	stringstream >> floatNumber;
+	charNumber = static_cast<char>(floatNumber);
+	intNumber = static_cast<int>(floatNumber);
+	doubleNumber = static_cast<double>(floatNumber); 
+	std::cout << std::setprecision(1) << std::fixed;
+	printChar(charNumber);
+	std::cout << "int: " << intNumber << std::endl;
+	std::cout << "float: " << floatNumber << "f" << std::endl;
+	std::cout << "double: " << doubleNumber << std::endl;
 }
 
 void ScalarConverter::convertDouble(std::string str)
 {
 	std::cout << str << "is a double" << std::endl;
+		// long double	ldNumber = 0;
+	char		charNumber = 0;
+	int			intNumber = 0;
+	float		floatNumber = 0;
+	double		doubleNumber = 0;
+	std::stringstream stringstream(str);
+	// stringstream >> ldNumber;
+	// if (ldNumber > static_cast<long long>(std::numeric_limits<int>::max())
+	// 		|| ldNumber < static_cast<long long>(std::numeric_limits<int>::min()))
+	// 	std::cout << "integer would have been overflowed" << std::endl;
+	
+	stringstream >> doubleNumber;
+	charNumber = static_cast<char>(doubleNumber);
+	intNumber = static_cast<int>(doubleNumber);
+	floatNumber = static_cast<float>(doubleNumber); 
+	std::cout << std::setprecision(1) << std::fixed;
+	printChar(charNumber);
+	std::cout << "int: " << intNumber << std::endl;
+	std::cout << "float: " << floatNumber << "f" << std::endl;
+	std::cout << "double: " << doubleNumber << std::endl;
 }
 
 void ScalarConverter::printCrap(void)
