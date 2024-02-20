@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 20:15:20 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/20 18:18:37 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/20 21:05:12 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ Array<T>::Array(int input) : m_size(input)
 template<typename T>
 Array<T>::~Array()
 {
-	
+	delete[] m_array;
 }
 
 template<typename T>
 Array<T>::Array(Array<T> const &other) : m_size(other.m_size)
 {
-	m_array = new T[other.size];
+	m_array = new T[other.size()];
 }
 
 template<typename T>
