@@ -6,11 +6,12 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 15:26:17 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/21 17:05:00 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/21 19:16:17 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <iostream>
 
 Span::Span() : m_size(0), m_amount(0)
 {
@@ -44,7 +45,10 @@ Span &Span::operator=(Span &other)
 void Span::addnumber(int number)
 {
 	if (m_amount < m_size)
+	{
 		m_vector.push_back(number);
+		m_amount++;
+	}
 	else
 		throw std::exception();
 }
@@ -68,5 +72,6 @@ unsigned int Span::shortestSpan(void)
 unsigned int Span::longestSpan(void)
 {
 	std::sort(m_vector.begin(), m_vector.end());
-	return (m_vector.at(m_amount) - m_vector.at(0));
+	std::cout << "amount: " << m_amount << " vector at amount: " << m_vector.at(m_amount - 1) << " vector at 0: " << m_vector.at(0) << std::endl;
+	return (m_vector.at(m_amount - 1) - m_vector.at(0));
 }
