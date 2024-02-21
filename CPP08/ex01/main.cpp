@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 15:24:30 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/21 19:21:59 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/21 20:15:48 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@ int main(void)
 {
 	std::srand(std::time(0));
 	int count = 10000;
+	std::vector<int> v;
 	Span a(count);
 	int i = -1;
 	try
 	{
 		while (++i < count)
-			a.addnumber(rand());
+			v.push_back(rand());
+		std::cout << "added " << count << " random numbers to vector" << std::endl;
+		a.addnumber(v.begin(), v.end());
 	}
 	catch(const std::exception& e)
 	{

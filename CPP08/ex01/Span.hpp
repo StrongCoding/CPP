@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 15:27:04 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/21 17:04:20 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/02/21 20:05:48 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Span
 		Span(Span &other);
 		Span &operator =(Span &other);
 		void addnumber(int number);
+		void addnumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		unsigned int shortestSpan(void);
 		unsigned int longestSpan(void);
 };
