@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 20:22:43 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/04 16:38:31 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/04 20:23:05 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class MutantStack : public std::stack<T>
 		class iterator
 		{
 			private:
-				T	*ptr;
+				T	*m_ptr;
 				
 			public:
 				iterator();
