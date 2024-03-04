@@ -6,14 +6,14 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 20:22:43 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/04 13:38:50 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/04 15:44:36 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 # include <stack>
-
+# include <iostream>
 
 template <typename T>
 class MutantStack : public std::stack<T>
