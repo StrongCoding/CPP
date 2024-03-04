@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 20:20:13 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/04 13:36:17 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/04 16:48:10 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,34 @@ int main(void)
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
-	std::cout << mstack.top() << std::endl;
+	mstack.push(99);
+	mstack.push(1);
+	std::cout << "top: " << mstack.top() << std::endl;
 	mstack.pop();
-	std::cout << mstack.size() << std::endl;
+	std::cout << "size: " << mstack.size() << std::endl;
+	std::cout << "top: " << mstack.top() << std::endl;
+	std::cout << "top: " << mstack.top() << std::endl;
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
 	mstack.push(0);
-	// MutantStack<int>::iterator it = mstack.begin();
-	// MutantStack<int>::iterator ite = mstack.end();
-	// ++it;
-	// --it;
-	// while (it != ite)
-	// {
-	// 	std::cout << *it << std::endl;
-	// 	++it;
-	// }
-	// std::stack<int> s(mstack);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	int z = 987;
+	std::cout << "z: " << z << std::endl;
+	MutantStack<int>::iterator numberz(&z);
+	std::cout << "numberz: " << *numberz << std::endl;
+	std::cout << "begin: " << *it << std::endl;
+	std::cout << "end: " << *ite << std::endl;
+	int i = 0;
+	while (it != ite && i < 10)
+	{
+		std::cout << *it << std::endl;
+		++it;
+		i++;
+	}
+	std::stack<int> s(mstack);
 	return 0;
 }

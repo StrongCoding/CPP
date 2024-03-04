@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 20:22:43 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/04 15:44:36 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/04 16:38:31 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ class MutantStack : public std::stack<T>
 				~iterator();
 				iterator(iterator const &other);
 				iterator &operator=(iterator const &other);
-				T &operator*(void);
-				iterator &operator++(void);
-				iterator &operator--(void);
+				bool operator!=(iterator const &other);
+				T operator*(void);
+				void operator++(void);
+				void operator--(void);
 		};
 		typename MutantStack<T>::iterator begin(void);
 		typename MutantStack<T>::iterator end(void);
