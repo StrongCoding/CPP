@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 20:20:13 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/05 11:08:00 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/05 11:15:25 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(void)
 	srand(std::time(0));
 	// std::cout << "empty mstack top: " << mstack.top() << std::endl;
 	// std::cout << "empty stack top: " << mstack.top() << std::endl;
-	int i = 100;
+	int i = 1000;
 	while (--i > 0)
 		bigstack.push(rand());
 	MutantStack<int>::iterator bit = bigstack.begin();
@@ -88,10 +88,10 @@ int main(void)
 	}
 	std::cout << "mstack size: " << mstack.size() << std::endl;
 	std::cout << "mstack top: " << mstack.top() << std::endl;
-	std::stack<int> s(mstack);
-	std::cout << "s size: " << s.size() << std::endl;
-	std::cout << "s top: " << s.top() << std::endl;
-	std::cout << "s top: " << s.top() << std::endl;
+	// std::stack<int> s(mstack);
+	// std::cout << "s size: " << s.size() << std::endl;
+	// std::cout << "s top: " << s.top() << std::endl;
+	// std::cout << "s top: " << s.top() << std::endl;
 	MutantStack<int> msstack2(mstack);
 	MutantStack<int> msstack3;
 	msstack3 = mstack;
