@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 20:20:13 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/04 16:48:10 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/05 09:37:00 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ int main(void)
 	MutantStack<int>::iterator a;
 	
 	MutantStack<int> mstack;
+	std::stack<int> stack;
+	// std::cout << "empty mstack top: " << mstack.top() << std::endl;
+	// std::cout << "empty stack top: " << mstack.top() << std::endl;
 	mstack.push(5);
 	mstack.push(17);
 	mstack.push(99);
@@ -38,24 +41,49 @@ int main(void)
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
-	mstack.push(0);
+	mstack.push(99);
+	mstack.push(3);
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
 	++it;
 	--it;
-	int z = 987;
-	std::cout << "z: " << z << std::endl;
-	MutantStack<int>::iterator numberz(&z);
-	std::cout << "numberz: " << *numberz << std::endl;
 	std::cout << "begin: " << *it << std::endl;
 	std::cout << "end: " << *ite << std::endl;
-	int i = 0;
-	while (it != ite && i < 10)
+	MutantStack<int>::iterator it2(it);
+	MutantStack<int>::iterator ite2(ite);
+	MutantStack<int>::iterator it3;
+	MutantStack<int>::iterator ite3;
+	it3 = it;
+	ite3 = ite;
+	while (it != ite)
 	{
 		std::cout << *it << std::endl;
 		++it;
-		i++;
 	}
+	while (it2 != ite2)
+	{
+		std::cout << *it2 << std::endl;
+		++it2;
+	}
+	while (it3 != ite3)
+	{
+		std::cout << *it3 << std::endl;
+		++it3;
+	}
+	std::cout << "mstack size: " << mstack.size() << std::endl;
+	std::cout << "mstack top: " << mstack.top() << std::endl;
 	std::stack<int> s(mstack);
+	std::cout << "s size: " << s.size() << std::endl;
+	std::cout << "s top: " << s.top() << std::endl;
+	std::cout << "s top: " << s.top() << std::endl;
+	MutantStack<int> msstack2(mstack);
+	MutantStack<int> msstack3;
+	msstack3 = mstack;
+	std::cout << "mstack2 size: " << msstack2.size() << std::endl;
+	std::cout << "mstack2 top: " << msstack2.top() << std::endl;
+	std::cout << "mstack2 top: " << msstack2.top() << std::endl;
+	std::cout << "mstack3 size: " << msstack3.size() << std::endl;
+	std::cout << "mstack3 top: " << msstack3.top() << std::endl;
+	std::cout << "mstack3 top: " << msstack3.top() << std::endl;
 	return 0;
 }

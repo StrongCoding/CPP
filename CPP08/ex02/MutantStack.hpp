@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 20:22:43 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/04 20:23:05 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/05 08:57:47 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class MutantStack : public std::stack<T>
 	public:
 		MutantStack();
 		~MutantStack();
-		MutantStack(MutantStack const &other);
-		MutantStack &operator=(MutantStack const &other);
+		MutantStack(MutantStack &other);
+		MutantStack &operator=(MutantStack &other);
 		
 		class iterator
 		{

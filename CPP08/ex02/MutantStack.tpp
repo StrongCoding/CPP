@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 20:24:03 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/04 20:30:48 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/05 09:36:24 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,35 @@ MutantStack<T>::~MutantStack()
 }
 
 template<typename T>
-MutantStack<T>::MutantStack(MutantStack const & other)
+MutantStack<T>::MutantStack(MutantStack &other)
 {
-	(void)other;
+	std::cout << "standard copy constructor MutantStack called" << std::endl;
+	MutantStack<int>::iterator it = other.begin();
+	MutantStack<int>::iterator ite = other.end();
+	while (it != ite)
+	{
+		this->push(*it);
+		++it;
+	}
+	this->push(*it);
 }
 
 template<typename T>
-MutantStack<T> & MutantStack<T>::operator=(MutantStack<T> const & other)
+MutantStack<T> &MutantStack<T>::operator=(MutantStack<T> & other)
 {
-	(void)other;
-	std::cout << "overloaded assignement operator called" << std::endl;
+	MutantStack<int> tempStack;
+	while (!this->empty())				//emptying old stack
+		this->pop();
+
+	MutantStack<int>::iterator it = other.begin();
+	MutantStack<int>::iterator ite = other.end();
+	while (it != ite)
+	{
+		this->push(*it);
+		++it;
+	}
+	this->push(*it);
+	return (*this);
 }
 
 template <typename T>
@@ -40,7 +59,7 @@ MutantStack<T>::iterator::~iterator()
 }
 
 template <typename T>
-MutantStack<T>::iterator::iterator(void)
+MutantStack<T>::iterator::iterator() : m_ptr(NULL)
 {
 	std::cout << "standard constructor iterator called" << std::endl;
 }
@@ -61,11 +80,12 @@ MutantStack<T>::iterator::iterator(const typename MutantStack<T>::iterator &othe
 template <typename T>
 typename MutantStack<T>::iterator &MutantStack<T>::iterator::operator=(const typename MutantStack<T>::iterator &other)
 {
-	if (this != other)
+	if (*this != other)
 	{
 		m_ptr = other.m_ptr;
 	}
 	std::cout << "overloaded assignment operator iterator called" << std::endl;
+	return (*this);
 }
 
 template <typename T>
