@@ -6,13 +6,17 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 20:20:13 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/05 09:37:00 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/05 11:08:00 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <iostream>
 #include <vector>
+#include <ctime>
+#include <cstdlib>
+#include <deque>
+
 
 int main(void)
 {
@@ -26,9 +30,21 @@ int main(void)
 	MutantStack<int>::iterator a;
 	
 	MutantStack<int> mstack;
+	MutantStack<int> bigstack;
 	std::stack<int> stack;
+	srand(std::time(0));
 	// std::cout << "empty mstack top: " << mstack.top() << std::endl;
 	// std::cout << "empty stack top: " << mstack.top() << std::endl;
+	int i = 100;
+	while (--i > 0)
+		bigstack.push(rand());
+	MutantStack<int>::iterator bit = bigstack.begin();
+	MutantStack<int>::iterator bite = bigstack.end();
+	while (bit != bite)
+	{
+		std::cout << *bit << std::endl;
+		++bit;
+	}
 	mstack.push(5);
 	mstack.push(17);
 	mstack.push(99);
