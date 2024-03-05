@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 15:26:17 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/02/21 20:15:21 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/05 14:14:49 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ Span::~Span()
 	
 }
 
-Span::Span(Span &other)
+Span::Span(Span const &other)
 {
 	*this = other;
 }
 
-Span &Span::operator=(Span &other)
+Span &Span::operator=(Span const &other)
 {
 	if (this != &other)
 	{
