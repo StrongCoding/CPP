@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:53:42 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/18 18:56:46 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/18 20:22:29 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class BitcoinExchange
 		std::string removeWhitespace(const std::string& str);
 		bool	checkLine(std::string line, int currentLine);
 		unsigned int	countDots(std::string str);
+		bool 	isLeapYear(int year);
 	
 	public:
 		BitcoinExchange(std::string inputFileName);

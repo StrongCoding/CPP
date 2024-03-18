@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:57:37 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/18 20:03:22 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/18 20:25:30 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,8 @@ BitcoinExchange::BitcoinExchange(std::string inputFileName)
 		throw std::runtime_error("Error: could not open databasefile.");
 	}
 	readFile << inputfile.rdbuf();
-	// fileContent = readFile.str();
 	readDatabasefile << databasefile.rdbuf();
-	// databasefileContent = readDatabasefile.str();
 	int i = 1;
-	// while (std::getline(readDatabasefile, databasefileContent))
-	// {
-	// 	std::cout << databasefileContent << std::endl;
-	// 	checkLine(databasefileContent, i++);
-	// }
 	while (std::getline(readDatabasefile, databasefileContent))
 	{
 		// std::cout << databasefileContent << std::endl;
@@ -83,6 +76,12 @@ bool	BitcoinExchange::checkDate(std::string line)
 	// std::cout << "dateString: \"" << dateString << "\"" << std::endl;
 	char *result = strptime(dateString.c_str(), "%Y-%m-%d", &dateStruct);
 	if (!result)
+		return (false);
+	if ((dateStruct.tm_mon == 3 || dateStruct.tm_mon == 5 || dateStruct.tm_mon == 8 || dateStruct.tm_mon == 10 ) && dateStruct.tm_mday == 31)
+		return (false);
+	if (dateStruct.tm_mon == 1 && dateStruct.tm_mday > 29)
+		return (false);
+	if (dateStruct.tm_mon == 1 && dateStruct.tm_mday == 29 && !isLeapYear(dateStruct.tm_year + 1900))
 		return (false);
 	// std::cout << "result: " << dateStruct.tm_mday << std::endl;
 	return (true);
@@ -221,4 +220,11 @@ bool	BitcoinExchange::checkLineDatabase(std::string line, int currentLine)
 		return (false);
 	}
 	return (true);
+}
+
+bool BitcoinExchange::isLeapYear(int year)
+{
+	if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+		return (true);
+	return (false);
 }
