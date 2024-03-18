@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:57:37 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/18 20:41:39 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/18 20:55:21 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,16 @@ bool	BitcoinExchange::checkValue(std::string line)
 	// std::cout << "line: " << line << std::endl;
 	// std::cout << "valueString: \"" << valueString << "\"" << std::endl;
 	std::stringstream convertedValue(valueString);
+	if (valueString.length() == 0)
+		return (false);
+	valueString = removeWhitespace(valueString);
+	// std::cout << "length ok"<< valueString << "." << std::endl;
+	if (!isNumber(valueString))
+		return (false);
+	// std::cout << "isnumber ok" << std::endl;
+	if (countDots(valueString) > 1)
+		return (false);
+	// std::cout << "countDots ok" << std::endl;
 	convertedValue >> floatValue;
 	if ((floatValue > 1000 || floatValue < 0))
 		return (false);
@@ -192,6 +202,10 @@ bool	BitcoinExchange::checkValueDatabase(std::string line)
 	// std::cout << "line: " << line << std::endl;
 	// std::cout << "valueString: \"" << valueString << "\"" << std::endl;
 	std::stringstream convertedValue(valueString);
+	if (!isNumber(valueString))
+		return (false);
+	if (countDots(valueString) > 1)
+		return (false);
 	if (valueString.length() == 0)
 		return (false);
 	convertedValue >> floatValue;
@@ -222,4 +236,15 @@ bool BitcoinExchange::isLeapYear(int year)
 	if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
 		return (true);
 	return (false);
+}
+
+bool	BitcoinExchange::isNumber(std::string str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		if (!isdigit(str[i]) && (str[i] != '.'))
+			return (false);
+	return (true);
 }
