@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:57:37 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/06 18:00:32 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/18 18:17:10 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 BitcoinExchange::BitcoinExchange()
 {
+}
+
+BitcoinExchange::BitcoinExchange(std::string inputFile)
+{
+	(void)inputFile;
 }
 
 BitcoinExchange::~BitcoinExchange()

@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 09:04:22 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/06 22:17:00 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/18 17:35:00 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include <sstream>
 #include <fstream>
 #include <stdexcept>
+#include <string>
+#include <cctype>
+#include <map>
+#include <algorithm>
+
+std::map<std::string, double> dataMap;
 
 unsigned int	countDots(std::string str)
 {
@@ -26,6 +32,19 @@ unsigned int	countDots(std::string str)
 	return (countDots);
 }
 
+std::string removeWhitespace(const std::string& str)
+{
+	std::string result;
+	for (std::string::const_iterator i = str.begin(); i != str.end(); ++i)
+	{
+		if (!std::isspace(*i))
+		{
+			result += *i;
+		}
+	}
+	return result;
+}
+
 bool	checkDate(std::string line)
 {
 	struct tm dateStruct;
@@ -33,7 +52,7 @@ bool	checkDate(std::string line)
 	std::stringstream dateStream(line);
 	std::getline(dateStream, dateString, '|');
 	// std::cout << "line: " << line << std::endl;
-	// std::cout << "dateString: \"" << dateString << "\"" << std::endl;
+	std::cout << "dateString: \"" << dateString << "\"" << std::endl;
 	char *result = strptime(dateString.c_str(), "%Y-%m-%d", &dateStruct);
 	if (!result)
 		return (false);
@@ -48,7 +67,7 @@ bool	checkValue(std::string line)
 	std::string buffer, valueString;
 	std::stringstream valueStream(line);
 	std::getline(valueStream, buffer, '|');
-	std::getline(valueStream, valueString, '|');
+	std::getline(valueStream, valueString);
 	// std::cout << "line: " << line << std::endl;
 	std::cout << "valueString: \"" << valueString << "\"" << std::endl;
 	std::stringstream convertedValue(valueString);
@@ -68,6 +87,9 @@ bool	checkValue(std::string line)
 	}
 	else
 		return (false);
+	convertedValue >> floatValue;
+	buffer = removeWhitespace(buffer);
+	dataMap[buffer.c_str()] = floatValue;
 	return (true);
 }
 
@@ -130,5 +152,15 @@ int	main(int argc, char **argv)
 		std::cout << fileContent << std::endl;
 		checkLine(fileContent, i++);
 	}
-	return (0);
+	std::cout << "dataMap: " << dataMap["2011-01-04"] << std::endl;
+	std::map<std::string, double>::iterator it = dataMap.lower_bound("2011-01-03");
+	if (it != dataMap.begin())
+	{
+		it--;
+		std::cout << "dataMap lower_bound: " << it->first << ", " << it->second << std::endl;
+	}
+	else
+	{
+		std::cout << "no lower key found" << std::endl;
+	}
 }

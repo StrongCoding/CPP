@@ -7,8 +7,8 @@ HEADER :=	BitcoinExchange.hpp
 
 OBJ := $(SRC:.cpp=.o)
 
-#CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g
+#CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 .PHONY: all bonus clean fclean re
 
