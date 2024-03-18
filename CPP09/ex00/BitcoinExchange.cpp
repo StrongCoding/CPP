@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:57:37 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/18 20:25:30 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/18 20:41:39 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,15 @@ BitcoinExchange::BitcoinExchange(std::string inputFileName)
 	while (std::getline(readDatabasefile, databasefileContent))
 	{
 		// std::cout << databasefileContent << std::endl;
+		if (i == 1 && databasefileContent == "date,exchange_rate")
+			continue;
 		checkLineDatabase(databasefileContent, i++);
 	}
 	i = 1;
 	while (std::getline(readFile, fileContent))
 	{
+		if (i == 1 && fileContent == "date | value")
+			continue;
 		checkLine(fileContent, i++);
 	}
 }
@@ -98,9 +102,9 @@ bool	BitcoinExchange::checkValue(std::string line)
 	// std::cout << "line: " << line << std::endl;
 	// std::cout << "valueString: \"" << valueString << "\"" << std::endl;
 	std::stringstream convertedValue(valueString);
-		convertedValue >> floatValue;
-		if ((floatValue > 1000 || floatValue < 0))
-			return (false);
+	convertedValue >> floatValue;
+	if ((floatValue > 1000 || floatValue < 0))
+		return (false);
 		// std::cout << "float value: \"" << floatValue << "\"" << std::endl;
 	convertedValue >> floatValue;
 	buffer = removeWhitespace(buffer);
@@ -181,7 +185,6 @@ bool	BitcoinExchange::checkDateDatabase(std::string line)
 bool	BitcoinExchange::checkValueDatabase(std::string line)
 {
 	float floatValue = -1;
-	int intValue = -1;
 	std::string buffer, valueString;
 	std::stringstream valueStream(line);
 	std::getline(valueStream, buffer, ',');
@@ -189,19 +192,11 @@ bool	BitcoinExchange::checkValueDatabase(std::string line)
 	// std::cout << "line: " << line << std::endl;
 	// std::cout << "valueString: \"" << valueString << "\"" << std::endl;
 	std::stringstream convertedValue(valueString);
-	if (countDots(valueString) == 0)
-	{
-		convertedValue >> intValue;
-		// std::cout << "int value: \"" << intValue << "\"" << std::endl;
-	}
-	else if (countDots(valueString) == 1)
-	{
-		convertedValue >> floatValue;
-		// std::cout << "float value: \"" << floatValue << "\"" << std::endl;
-	}
-	else
+	if (valueString.length() == 0)
 		return (false);
 	convertedValue >> floatValue;
+	if (floatValue < 0)
+		return (false);
 	buffer = removeWhitespace(buffer);
 	m_dataMap[buffer.c_str()] = floatValue;
 	return (true);
@@ -211,12 +206,12 @@ bool	BitcoinExchange::checkLineDatabase(std::string line, int currentLine)
 {
 	if (!checkDateDatabase(line))
 	{
-		std::cout << "Error Date in line: " << currentLine << std::endl;
+		std::cout << "Database Error Date in line: " << currentLine << std::endl;
 		return (false);
 	}
 	if (!checkValueDatabase(line))
 	{
-		std::cout << "Error Value in line: " << currentLine << std::endl;
+		std::cout << "Database Error Value in line: " << currentLine << std::endl;
 		return (false);
 	}
 	return (true);
