@@ -6,19 +6,21 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:53:42 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/18 20:45:51 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/19 08:14:36 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
-#include <sstream>
-#include <fstream>
-#include <stdexcept>
-#include <string>
-#include <cctype>
-#include <map>
-#include <algorithm>
+#ifndef BITCOINEXCHANGE_HPP
+# define BITCOINEXCHANGE_HPP
+# include <string>
+# include <iostream>
+# include <sstream>
+# include <fstream>
+# include <stdexcept>
+# include <string>
+# include <cctype>
+# include <map>
+# include <algorithm>
 
 class BitcoinExchange
 {
@@ -42,3 +44,5 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange &other);
 		BitcoinExchange &operator=(const BitcoinExchange &other);
 };
+
+#endif
