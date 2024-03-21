@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:57:37 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/18 20:55:21 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/21 10:37:33 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,8 @@ bool	BitcoinExchange::checkValue(std::string line)
 		if (it != m_dataMap.begin())
 		{
 			it--;
-			std::cout << "closest date: " << it->first << " => " << floatValue << " => " << it->second * floatValue << std::endl;
+			// std::cout << "closest date: " << it->first << " => " << floatValue << " => " << it->second * floatValue << std::endl;
+			std::cout << buffer << " => " << floatValue << " => " << it->second * floatValue << std::endl;
 		}
 		else
 		{
