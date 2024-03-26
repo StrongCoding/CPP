@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:03:36 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/21 10:11:01 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/26 22:33:30 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,34 @@
 # define PMERGEME_HPP
 # include <vector>
 # include <deque>
+# include <utility>
+# include <iostream>
+# include <algorithm>
+# include <ctime>
 
 class PmergeMe
 {
 	private:
 	std::vector<unsigned int> m_vectorStack;
 	std::deque<unsigned int> m_dequeStack;
-	long long m_time;
+	// double	m_executionTimeVector;
+	// double	m_executionTimeDeque;
 
 	public:
 		PmergeMe();
-		PmergeMe(std::deque<unsigned int> dequeStack);
-		PmergeMe(std::vector<unsigned int> vectorStack);
+		PmergeMe(std::deque<unsigned int> &dequeStack);
+		PmergeMe(std::vector<unsigned int> &vectorStack);
 		~PmergeMe();
 		PmergeMe(PmergeMe &other);
 		PmergeMe &operator=(PmergeMe &other);
+		void printStack(std::vector<unsigned int> &stack);
+		void printPairs(std::vector<std::pair<unsigned int, unsigned int> > &pairs);
+		void sortEachPair(std::vector<std::pair<unsigned int, unsigned int> > &pairs);
+		void sortPairs(std::vector<std::pair<unsigned int, unsigned int> > &pairs);
+		bool checkSortedPair(std::vector<std::pair<unsigned int, unsigned int> > &pairs);
+		static bool comparePairs(const std::pair<int, int>& a, const std::pair<int, int>& b);
+		void mergeInsertion(std::vector<std::pair<unsigned int,unsigned int> > &pairs, std::vector<unsigned int> &vectorStack);
+		void setNextJacNumber(unsigned int &prevJacNumber, unsigned int &jacNumber);
 };
 
 #endif
