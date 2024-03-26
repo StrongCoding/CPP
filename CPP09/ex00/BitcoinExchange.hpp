@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:53:42 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/19 08:14:36 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/26 09:50:06 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ class BitcoinExchange
 		unsigned int	countDots(std::string str);
 		bool 	isLeapYear(int year);
 		bool	isNumber(std::string str);
+		BitcoinExchange(const BitcoinExchange &other);
+		BitcoinExchange &operator=(const BitcoinExchange &other);
 	
 	public:
 		BitcoinExchange(std::string inputFileName);
 		~BitcoinExchange();
-		BitcoinExchange(const BitcoinExchange &other);
-		BitcoinExchange &operator=(const BitcoinExchange &other);
 };
 
 #endif
