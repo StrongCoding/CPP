@@ -156,6 +156,9 @@ void PmergeMe::mergeInsertion(std::vector<std::pair<unsigned int,unsigned int> >
 	bool	isOdd = false;
 	unsigned int	prevJacNumber = 1;
 	unsigned int	jacNumber = 1;
+
+	if (pairs.size() == 0)
+		return ;
 	if (vectorStack.size() % 2 == 1)
 	{
 		odd = vectorStack.back();
@@ -271,6 +274,8 @@ void PmergeMe::mergeInsertion(std::deque<std::pair<unsigned int,unsigned int> > 
 	bool	isOdd = false;
 	unsigned int	prevJacNumber = 1;
 	unsigned int	jacNumber = 1;
+	if (pairs.size() == 0)
+		return ;
 	if (dequeStack.size() % 2 == 1)
 	{
 		odd = dequeStack.back();
@@ -308,5 +313,5 @@ void PmergeMe::mergeInsertion(std::deque<std::pair<unsigned int,unsigned int> > 
 	{
 			dequeStack.insert(std::lower_bound(dequeStack.begin(), dequeStack.end(), odd), odd);
 	}
-	// printStack(dequeStack);
+	printStack(dequeStack);
 }

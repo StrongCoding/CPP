@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:03:30 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/26 22:31:58 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/27 16:56:57 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 bool	isNumber(std::string str)
 {
 	int	i;
-
+	
+	if (!str[0])
+		return false;
 	i = -1;
 	while (str[++i])
 		if (!isdigit(str[i]))
