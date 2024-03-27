@@ -6,7 +6,7 @@
 /*   By: dnebatz <dnebatz@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 08:13:14 by dnebatz           #+#    #+#             */
-/*   Updated: 2024/03/19 09:18:28 by dnebatz          ###   ########.fr       */
+/*   Updated: 2024/03/27 17:11:25 by dnebatz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ RPN::RPN(std::string input)
 	while (std::getline(readInput, inputContent, ' '))
 		{
 			
-			
+			if (inputContent.size() == 0)
+				continue;
 			if (inputContent == "+" || inputContent == "-" || inputContent == "/" || inputContent == "*")
 				{
 				std::cout << "i want to calc: \"" << inputContent << "\"" << std::endl;
